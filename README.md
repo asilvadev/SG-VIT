@@ -11,10 +11,9 @@
 ## Sistema de Gerenciamento de Venda de Ingressos de Teatro
 <br><br>
 ## ATA
-| Nº |ATA | Data | Download |
-|-|-|-|-|
-|01|Levantamento de ferramentas para desenvolvimendo|14/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/ATA/ATA%2001%20-%20Ata%20de%20Reunião%20-%20Levantamento%20de%20ferramentas%20para%20desenvolvimento%20-%2014.08.2019.pdf)|
-
+| Nº |Descrição | Data | Download |
+|-|-|-|-|-|
+|01|Levantamento de ferramentas para desenvolvimendo|12/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/ATA/ATA%2001%20-%20Levantamento%20de%20ferramentas%20para%20desenvolvimento%20-%2012.08.2019.pdf)|
 <br><br>
 #
 ## Contributors
