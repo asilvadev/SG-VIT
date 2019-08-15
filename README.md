@@ -16,6 +16,10 @@
 |-|-|-|
 |0.0.1|14/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/Docs/Documento%20de%20EOR%20-%20SG-VIT.pdf)|
 
+## Documento de Viabilidade
+|Versão|Data|Download|
+|-|-|-|
+|0.0.1|14/08/2019|[LINK](https://docs.google.com/document/d/1WcJmFmbdfi0pUfzN5idmCA_Hn8Ov2O_7X2nNpX1f1Jo/edit)|
 ## ATA
 | Nº |Descrição | Data | Download |
 |-|-|-|-|
