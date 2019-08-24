@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SgvitApplication<sgvit>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.asilvadev.sgvit.SgvitApplication",
+            "projectName": "sgvit",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SgvitApplication<sgvit>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.asilvadev.sgvit.controllers.SgvitApplication",
+            "projectName": "sgvit",
+            "args": ""
+        }
+    ]
+}
