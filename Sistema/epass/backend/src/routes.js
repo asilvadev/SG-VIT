@@ -1,14 +1,15 @@
 const express = require('express');
 const UserController = require('./controllers/UserController');
+const PecaController = require('./controllers/PecaController');
 
 const routes = express.Router();
 
-
-routes.get('/', (req, res) => {
-    return res.json({funcionando : true})
-});
+routes.get('/', UserController.index);
 
 routes.get('/user', UserController.index);
 routes.post('/user', UserController.store);
+
+routes.get('/peca', PecaController.index);
+routes.post('/peca', PecaController.store);
 
 module.exports = routes;
