@@ -9,6 +9,8 @@ routes.get('/', UserController.index);
 routes.get('/user', UserController.index);
 routes.post('/user', UserController.store);
 
+routes.get('/visualizar/:id', UserController.index);
+
 routes.get('/peca', PecaController.index);
 routes.post('/peca', PecaController.store);
 
