@@ -1,5 +1,0 @@
-
-yarn sequelize migration:create --name=create-users 
-
-yarn db:migrate 
-yarn db:drop
