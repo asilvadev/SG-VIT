@@ -21,13 +21,13 @@ module.exports = {
       senha: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: cpf,
       },
       cpf: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      isFunc: {
+      
+      is_func: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },

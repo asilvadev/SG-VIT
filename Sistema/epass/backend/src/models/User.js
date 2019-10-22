@@ -7,7 +7,7 @@ class User extends Model {
             email: DataTypes.STRING,
             cpf: DataTypes.STRING,
             senha: DataTypes.STRING,
-            isFunc: DataTypes.BOOLEAN,
+            is_func: DataTypes.BOOLEAN,
         },{
             sequelize
         })

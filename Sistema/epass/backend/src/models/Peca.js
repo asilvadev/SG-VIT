@@ -11,6 +11,10 @@ class Peca extends Model {
             sequelize
         })
     }
+
+    static associate(models){
+        this.hasMany(models.Ingresso, { foreignKey : 'peca_id', as : 'ingressos' });
+    }
 }
 
 module.exports = Peca;

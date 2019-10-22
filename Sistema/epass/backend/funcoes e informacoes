@@ -1,8 +1,8 @@
 
 yarn sequelize migration:create --name=create-users 
 
-yarn db:migrate 
-yarn db:drop:undo
+yarn sequelize db:migrate 
+yarn sequelize db:migrate:undo:all
 
 // RELACIONAMENTOS
 

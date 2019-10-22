@@ -4,6 +4,7 @@ module.exports = {
 
     async index(req, res){
         const pecas = await Peca.findAll();
+            
 
         return res.json(pecas);
     },
