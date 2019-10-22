@@ -15,31 +15,38 @@ yarn db:drop:undo
 
 {
     "nome" : "Alan",
-    "cpf" : "06673936410"
-    "peca" : [
+    "email" : "email@email.com",
+    "cpf" : "12345678910",
+    "ingressos" : 
+    [
         {
-            "nome" : "4 amigos"
-            "descricao" : "descricao da peca teatral"
-            "duracao" : "01:30:00"
-            "diretor" : "JP e Alex"
-            "ingresso" : 
+            "tipo" : "Meia"
+            "valor" : "55,00"
+            "localizacao" : "E9"
+            "peca" : 
                 {
-                    "tipo" : "Meia"
-                    "valor" : "40,00"
-                    "localizacao" : "B5"
+                    "nome" : "Os melhores do mundo"
+                    "descricao" : "descricao da peca teatral"
+                    "duracao" : "01:30:00"
+                    "diretor" : "Compahia os Melhores do Mundo"
                 }
-        }
+        },
         {
-            "nome" : "Os melhores do mundo"
-            "descricao" : "descricao da peca teatral"
-            "duracao" : "01:30:00"
-            "diretor" : "Compahia os Melhores do Mundo"
-            "ingresso" : 
+            "tipo" : "Meia"
+            "valor" : "40,00"
+            "localizacao" : "B5"
+            "peca" : 
                 {
-                    "tipo" : "Meia"
-                    "valor" : "55,00"
-                    "localizacao" : "E9"
+                    "nome" : "4 amigos"
+                    "descricao" : "descricao da peca teatral"
+                    "duracao" : "01:30:00"
+                    "diretor" : "JP e Alex"
                 }
         }
     ]
+            
+
+        
+
+   
 }

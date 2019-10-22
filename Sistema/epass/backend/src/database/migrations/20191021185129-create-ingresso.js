@@ -11,6 +11,20 @@ module.exports = {
           autoIncrement: true,
           allowNull: false,
         },
+        // user_id: {
+        //   type: Sequelize.INTEGER,
+        //   allowNull: false,
+        //   references: { model: 'users', key: 'id' },
+        //   onUpdate: 'CASCADE',
+        //   onDelete: 'CASCADE',
+        // },
+        peca_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'pecas', key: 'id' },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
         tipo: {
           type: Sequelize.ENUM,
           values: ['Inteira', 'Meia'],

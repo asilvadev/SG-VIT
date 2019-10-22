@@ -18,9 +18,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      senha: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: cpf,
+      },
       cpf: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      isFunc: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       created_at: {
         type: Sequelize.DATE, 
