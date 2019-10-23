@@ -25,6 +25,13 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
         },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'users', key: 'id' },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
         tipo: {
           type: Sequelize.ENUM,
           values: ['Inteira', 'Meia'],

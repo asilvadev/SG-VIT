@@ -10,9 +10,9 @@ module.exports = {
     },
 
     async store(req, res){
-        const { name, sinopse, director, duration } = req.body;
+        const { name, sinopse, director, duration, classificacao } = req.body;
 
-        const peca = await Peca.create({name, sinopse, director, duration});
+        const peca = await Peca.create({name, sinopse, director, duration, classificacao});
 
         return res.json(peca);
     }

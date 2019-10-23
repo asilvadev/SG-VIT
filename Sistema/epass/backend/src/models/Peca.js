@@ -7,6 +7,7 @@ class Peca extends Model {
             sinopse: DataTypes.TEXT,
             director: DataTypes.STRING,
             duration: DataTypes.TIME,
+            classificacao: DataTypes.ENUM('Livre', 'Adulto'),
         },{
             sequelize
         })

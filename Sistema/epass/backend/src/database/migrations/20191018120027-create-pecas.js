@@ -26,6 +26,11 @@ module.exports = {
         type: Sequelize.TIME,
         allowNull: false,
       },
+      classificacao: {
+        type: Sequelize.ENUM,
+        values: ['Livre', 'Adulto'],
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE, 
         allowNull: false,

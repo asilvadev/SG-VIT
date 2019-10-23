@@ -1,5 +1,6 @@
 const Squelize = require('sequelize');
 const dbConfig = require ('../config/database');
+
 const User = require('../models/User');
 const Peca = require('../models/Peca');
 const Ingresso = require('../models/Ingresso');
@@ -12,6 +13,7 @@ Peca.init(connection);
 Ingresso.init(connection);
 
 
+User.associate(connection.models);
 Peca.associate(connection.models);
 Ingresso.associate(connection.models);
 

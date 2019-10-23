@@ -11,7 +11,9 @@ class Ingresso extends Model {
     }
 
     static associate(models){
-        this.belongsTo(models.User, { foreignKey : 'peca_id', as : 'owner' });
+        this.belongsTo(models.User, { foreignKey : 'user_id', as : 'user_owner' });
+        
+        
     }
 }
 
