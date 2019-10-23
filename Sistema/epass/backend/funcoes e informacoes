@@ -13,6 +13,10 @@ yarn sequelize db:migrate:undo:all
 1 Ingresso pertence a 1 Peca
 
 
+-> fazer o espetaculo (peca + end teatro + data/hora)
+-> criar models teatro com as info endereco, cidade, nome do teatro.
+-> fazer o valor do ingresso meia e interia e deixar o usuario pra dar select no form
+
 {
     "nome" : "Alan",
     "email" : "email@email.com",
