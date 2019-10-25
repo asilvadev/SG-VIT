@@ -14,6 +14,10 @@ yarn sequelize db:migrate:undo:all
 1 Peca possui N Ingressos
 1 Ingresso pertence a 1 Peca
 
+validações na camada frontend
+https://www.youtube.com/watch?v=Vtx6H9dLP4A
+
+
 
 -> fazer o espetaculo (peca + end teatro + data/hora)
 -> criar models teatro com as info endereco, cidade, nome do teatro.

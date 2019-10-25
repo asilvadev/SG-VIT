@@ -1,20 +1,28 @@
 import React from 'react';
 import './SignUp.css';
 
+import api from '../services/api';
+
 import logo from '../assets/epass.png';
 
-export default function Login() {
+export default function Login({ history }) {
 
-  const [nome, setNome] = React.useState('');
+  const [name, setNome] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [cpf, setCPF] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [senha, setPassword] = React.useState('');
 
-  function handlesSubmit(e) {
+  async function handlesSubmit(e) {
     e.preventDefault();
 
-    console.log(email);
-    console.log(password);
+    const response = api.post('/user', {
+      name,
+      email,
+      senha,
+      cpf
+    });
+    console.log(response);
+    history.push('/dashboard');
   }
 
   //Pode remover os value (para não aparecer no html)
@@ -24,11 +32,11 @@ export default function Login() {
       <form onSubmit={handlesSubmit}>
 
         <input type="text" placeholder="Nome"
-          value={nome}
+          value={name}
           onChange={e => setNome(e.target.value)}
         />
 
-        <input type="text" placeholder="CPF" maxlength="11"
+        <input type="text" placeholder="CPF" maxLength="11"
           value={cpf}
           onChange={e => setCPF(e.target.value)}
         />
@@ -39,7 +47,7 @@ export default function Login() {
         />
 
         <input type="password" placeholder="Senha"
-          value={password}
+          value={senha}
           onChange={e => setPassword(e.target.value)}
         />
         <button type="submit">Cadastrar</button>
