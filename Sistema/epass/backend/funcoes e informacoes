@@ -1,8 +1,10 @@
+yarn sequelize migration:create --name=create-users
+yarn sequelize seed:create --name=create-users
 
-yarn sequelize migration:create --name=create-users 
 
-yarn sequelize db:migrate 
+yarn sequelize db:migrate
 yarn sequelize db:migrate:undo:all
+
 
 // RELACIONAMENTOS
 
@@ -21,13 +23,13 @@ yarn sequelize db:migrate:undo:all
     "nome" : "Alan",
     "email" : "email@email.com",
     "cpf" : "12345678910",
-    "ingressos" : 
+    "ingressos" :
     [
         {
             "tipo" : "Meia"
             "valor" : "55,00"
             "localizacao" : "E9"
-            "peca" : 
+            "peca" :
                 {
                     "nome" : "Os melhores do mundo"
                     "descricao" : "descricao da peca teatral"
@@ -39,7 +41,7 @@ yarn sequelize db:migrate:undo:all
             "tipo" : "Meia"
             "valor" : "40,00"
             "localizacao" : "B5"
-            "peca" : 
+            "peca" :
                 {
                     "nome" : "4 amigos"
                     "descricao" : "descricao da peca teatral"
@@ -48,9 +50,9 @@ yarn sequelize db:migrate:undo:all
                 }
         }
     ]
-            
 
-        
 
-   
+
+
+
 }
