@@ -26,6 +26,10 @@ img {
     font-size: 16px;
     color: #666;
 }
+.login-container input:focus {
+  border: 1px solid #FCAF28;
+}
+
 .login-container form button{
     margin-top: 5px;
     border: 1px solid #ddd;
@@ -37,12 +41,12 @@ img {
     font-weight: bold;
     background: #24388E;
     cursor: pointer;
-    
+
   transition-duration: 0.15s;
-    
+
 }
 .login-container form input::placeholder{
-    color: #999; 
+    color: #999;
 }
 .login-container form button:hover {
     background-color: #FCAF28; /* Green */
