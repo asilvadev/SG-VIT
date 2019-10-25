@@ -36,17 +36,14 @@ module.exports = {
             message: 'Error: Senha cannot be blank.'
           });
         }
-
-        const check_email = await User.findAll({
-          where : {
-            email
-          }
-        });
-        if(!check_email){
-
-          return res.json(check_email);
+        else if(cpf.length < 11){
+          return res.send({
+            success: false,
+            message: 'Error: CPF length invalid.'
+          });
         }
-        return res.json(check_email);
+        
+        
 
 
 
