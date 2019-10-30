@@ -8,14 +8,14 @@ import logo from '../assets/epass.png';
 export default function SignIn(history){
 
     const [email, setEmail] = React.useState('');
-    const [senha, setPassword] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
     function handlesSubmit(e){
         e.preventDefault();
 
         const response = api.post('/user', {
             email,
-            senha
+            password
 
           });
           const id = response.data;

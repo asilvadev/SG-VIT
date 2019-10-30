@@ -13,8 +13,8 @@ export default function Routes(){
         <Route path="/" exact component={Home} />
         <Route path="/signin" exact component={SignIn} />
         <Route path="/signup" exact component={SignUp} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/show/create" component={ShowCreate} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/show/create" exact component={ShowCreate} />
         </BrowserRouter>
     );
 }

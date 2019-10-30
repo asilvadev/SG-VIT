@@ -1,9 +1,9 @@
 import React from 'react';
 import './SignUp.css';
 
-import api from '../services/api';
+// import api from '../services/api';
 
-import logo from '../assets/epass.png';
+// import logo from '../assets/epass.png';
 
 export default function Login(){
     return(
