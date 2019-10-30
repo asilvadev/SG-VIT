@@ -5,6 +5,8 @@ yarn sequelize seed:create --name=create-users
 yarn sequelize db:migrate
 yarn sequelize db:migrate:undo:all
 
+yarn sequelize db:seed:all
+
 
 // RELACIONAMENTOS
 

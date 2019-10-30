@@ -14,11 +14,11 @@ class User extends Model {
         })
     }
     static associate(models){
-        this.hasMany(models.Ingresso, { foreignKey : 'user_id', as : 'ingressos' });
-        
-        
+        // this.hasMany(models.Ingresso, { foreignKey : 'user_id', as : 'ingressos' });
+
+
     }
-    
+
 }
 
 module.exports = User;

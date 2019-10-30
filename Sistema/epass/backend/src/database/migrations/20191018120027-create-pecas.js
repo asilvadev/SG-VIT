@@ -26,17 +26,30 @@ module.exports = {
         type: Sequelize.TIME,
         allowNull: false,
       },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: 'teste.jpg',
+      },
       classificacao: {
         type: Sequelize.ENUM,
         values: ['Livre', 'Adulto'],
         allowNull: false,
       },
+      genero :{
+         type: Sequelize.STRING,
+        allowNull: false,
+       },
+      price: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       created_at: {
-        type: Sequelize.DATE, 
+        type: Sequelize.DATE,
         allowNull: false,
       },
       updated_at: {
-        type: Sequelize.DATE, 
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });

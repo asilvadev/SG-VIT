@@ -1,0 +1,86 @@
+img {
+  height: 90px;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container form input{
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 35px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+}
+.login-container form textarea {
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 120px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+}
+.login-container form select {
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 35px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.login-container input:focus {
+border: 1px solid #FCAF28;
+}
+.login-container textarea:focus {
+border: 1px solid #FCAF28;
+}
+.login-container select:focus {
+border: 1px solid #FCAF28;
+}
+
+
+.login-container form button{
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 35px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #FFF;
+  font-weight: bold;
+  background: #24388E;
+  cursor: pointer;
+
+transition-duration: 0.15s;
+
+}
+.login-container form input::placeholder{
+  color: #999;
+}
+.login-container form textarea::placeholder{
+  color: #999;
+
+}
+
+
+.login-container form button:hover {
+  background-color: #FCAF28; /* Green */
+  color: #24388E;
+}

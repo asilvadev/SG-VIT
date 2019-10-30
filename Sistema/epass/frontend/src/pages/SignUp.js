@@ -5,7 +5,7 @@ import api from '../services/api';
 
 import logo from '../assets/epass.png';
 
-export default function Login({ history }) {
+export default function SignUp(history ) {
 
   const [name, setNome] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -15,10 +15,10 @@ export default function Login({ history }) {
   async function handlesSubmit(e) {
     e.preventDefault();
 
-    const response = api.post('/user', {
-      name,
+    const response = api.post('/user/create', {
+      nome,
       email,
-      senha,
+      password,
       cpf
     });
     console.log(response);

@@ -4,16 +4,16 @@ class Ingresso extends Model {
     static init(sequelize){
         super.init({
             tipo: DataTypes.ENUM('Inteira', 'Meia'),
-            price: DataTypes.INTEGER,
+            is_ocupada: DataTypes.BOOLEAN,
         },{
             sequelize
         })
     }
 
     static associate(models){
-        this.belongsTo(models.User, { foreignKey : 'user_id', as : 'user_owner' });
-        
-        
+        // this.belongsTo(models.User, { foreignKey : 'user_id', as : 'user_owner' });
+
+
     }
 }
 
