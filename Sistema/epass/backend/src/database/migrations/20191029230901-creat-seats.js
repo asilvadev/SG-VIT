@@ -1,45 +1,40 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-
-    return queryInterface.createTable('seats', {
+    return queryInterface.createTable("seats", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       fila: {
         type: Sequelize.ENUM,
-        values: ['A', 'B', 'C', 'D', 'E'],
-        allowNull: false,
+        values: ["A", "B", "C", "D", "E"],
+        allowNull: false
       },
       cadeira: {
         type: Sequelize.ENUM,
-        values: ['1', '2', '3', '4', '5'],
+        values: ["1", "2", "3", "4", "5"],
         allowNull: false
       },
       is_ocupada: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        defaultValue: false
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
-
   },
 
   down: (queryInterface, Sequelize) => {
-
-
-    return queryInterface.dropTable('seats');
-
+    return queryInterface.dropTable("seats");
   }
 };
