@@ -1,9 +1,11 @@
 import React from 'react';
 import './ShowCreat.css';
 
+import api from '../services/api';
+
 import logo from '../assets/epass.png';
 
-export default function ShowCreat() {
+export default function ShowCreat({history}) {
 
   /*
    name: DataTypes.STRING,
@@ -28,9 +30,21 @@ export default function ShowCreat() {
   const [price, setPrice] = React.useState('');
   const [image, setImage] = React.useState('');
 
-  function handlesSubmit(e) {
+  async function handlesSubmit(e) {
     e.preventDefault();
 
+    const response = api.post('/show/create', {
+      name,
+      sinopse,
+      director,
+      duration,
+      classificacao,
+      genero,
+      price,
+      image
+    });
+    console.log(response);
+    // history.push('/dashboard');
   }
 
   //Pode remover os value (para não aparecer no html)
@@ -57,12 +71,17 @@ export default function ShowCreat() {
 
           onChange={e => setDuration(e.target.value)}
         />
-        <select name="classificacao">
-          <option value={classificacao}
+        <input type="enum" placeholder="Livre ou Adulto"
+          value={classificacao}
+
+          onChange={e => setClassificacao(e.target.value)}
+        />
+        {/* <select name="classificacao" value="Livre">
+          <option value="'Livre'"
             onChange={e => setClassificacao(e.target.value)}>Livre</option>
-          <option value={classificacao}
+          <option value='Adulto'
             onChange={e => setClassificacao(e.target.value)}>Adulto</option>
-        </select>
+        </select> */}
 
 
         <input type="text" placeholder="Genero"
