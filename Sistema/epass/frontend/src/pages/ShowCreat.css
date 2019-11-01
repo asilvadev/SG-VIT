@@ -2,7 +2,7 @@ img {
   height: 90px;
 }
 
-.login-container {
+.show-create-container {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -10,14 +10,14 @@ img {
   flex-direction: column;
 }
 
-.login-container form {
+.show-create-container form {
   width: 100%;
   max-width: 300px;
   display: flex;
   flex-direction: column;
 }
 
-.login-container form input{
+.show-create-container form input{
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -26,7 +26,7 @@ img {
   font-size: 16px;
   color: #666;
 }
-.login-container form textarea {
+.show-create-container form textarea {
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -35,7 +35,7 @@ img {
   font-size: 16px;
   color: #666;
 }
-.login-container form select {
+.show-create-container form select {
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -45,18 +45,18 @@ img {
   color: #666;
 }
 
-.login-container input:focus {
+.show-create-container input:focus {
 border: 1px solid #FCAF28;
 }
-.login-container textarea:focus {
+.show-create-container textarea:focus {
 border: 1px solid #FCAF28;
 }
-.login-container select:focus {
+.show-create-container select:focus {
 border: 1px solid #FCAF28;
 }
 
 
-.login-container form button{
+.show-create-container form button{
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -71,16 +71,16 @@ border: 1px solid #FCAF28;
 transition-duration: 0.15s;
 
 }
-.login-container form input::placeholder{
+.show-create-container form input::placeholder{
   color: #999;
 }
-.login-container form textarea::placeholder{
+.show-create-container form textarea::placeholder{
   color: #999;
 
 }
 
 
-.login-container form button:hover {
+.show-create-container form button:hover {
   background-color: #FCAF28; /* Green */
   color: #24388E;
 }

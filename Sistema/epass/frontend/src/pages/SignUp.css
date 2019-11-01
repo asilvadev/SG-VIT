@@ -2,7 +2,7 @@ img {
     height: 90px;
 }
 
-.login-container {
+.signup-container {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -10,14 +10,14 @@ img {
     flex-direction: column;
 }
 
-.login-container form {
+.signup-container form {
     width: 100%;
     max-width: 300px;
     display: flex;
     flex-direction: column;
 }
 
-.login-container form input{
+.signup-container form input{
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -28,10 +28,10 @@ img {
 
 
 }
-.login-container input:focus {
+.signup-container input:focus {
   border: 1px solid #FCAF28;
 }
-.login-container form button{
+.signup-container form button{
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -46,10 +46,10 @@ img {
   transition-duration: 0.15s;
 
 }
-.login-container form input::placeholder{
+.signup-container form input::placeholder{
     color: #999;
 }
-.login-container form button:hover {
+.signup-container form button:hover {
     background-color: #FCAF28; /* Green */
     color: #24388E;
   }

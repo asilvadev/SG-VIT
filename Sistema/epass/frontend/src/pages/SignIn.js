@@ -25,7 +25,7 @@ export default function SignIn(history){
 
 
     return (
-        <div className="login-container">
+        <div className="signin-container">
             <img src={logo} alt="ePass" />
             <form onSubmit={handlesSubmit}>
                 <input type="text" placeholder="E-mail"

@@ -2,7 +2,7 @@ img {
     height: 90px;
 }
 
-.login-container {
+.signin-container {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -10,14 +10,14 @@ img {
     flex-direction: column;
 }
 
-.login-container form {
+.signin-container form {
     width: 100%;
     max-width: 300px;
     display: flex;
     flex-direction: column;
 }
 
-.login-container form input{
+.signin-container form input{
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -26,11 +26,11 @@ img {
     font-size: 16px;
     color: #666;
 }
-.login-container input:focus {
+.signin-container input:focus {
   border: 1px solid #FCAF28;
 }
 
-.login-container form button{
+.signin-container form button{
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -45,10 +45,10 @@ img {
   transition-duration: 0.15s;
 
 }
-.login-container form input::placeholder{
+.signin-container form input::placeholder{
     color: #999;
 }
-.login-container form button:hover {
+.signin-container form button:hover {
     background-color: #FCAF28; /* Green */
     color: #24388E;
   }

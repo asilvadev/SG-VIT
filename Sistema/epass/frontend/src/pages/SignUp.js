@@ -26,7 +26,7 @@ export default function SignUp({ history }) {
 
   //Pode remover os value (para não aparecer no html)
   return (
-    <div className="login-container">
+    <div className="signup-container">
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <input
