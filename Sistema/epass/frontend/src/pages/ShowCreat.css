@@ -17,47 +17,65 @@ img {
   flex-direction: column;
 }
 
-.show-create-container form input{
-  margin-top: 5px;
+.show-create-container form input {
+  margin-top: 2px;
   border: 1px solid #ddd;
   border-radius: 4px;
   height: 35px;
-  padding: 0 20px;
+  padding: 0 5px;
   font-size: 16px;
   color: #666;
 }
+
 .show-create-container form textarea {
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   height: 120px;
-  padding: 0 20px;
+  padding: 5px 5px;
   font-size: 16px;
   color: #666;
 }
+
 .show-create-container form select {
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
   height: 35px;
-  padding: 0 20px;
+  padding: 0 5px;
   font-size: 16px;
   color: #666;
 }
 
 .show-create-container input:focus {
-border: 1px solid #FCAF28;
+  border: 1px solid #FCAF28;
 }
+
 .show-create-container textarea:focus {
-border: 1px solid #FCAF28;
+  border: 1px solid #FCAF28;
 }
+
 .show-create-container select:focus {
-border: 1px solid #FCAF28;
+  border: 1px solid #FCAF28;
 }
 
 
-.show-create-container form button{
-  margin-top: 5px;
+.show-create-container form label {
+  font-weight: bold;
+  color: #444;
+  margin: 15px 0 0 1px;
+  font-size: 14px;
+}
+
+.show-create-container form label span {
+  font-weight: normal;
+  color: #999;
+  font-size: 12px;
+}
+
+
+.show-create-container form button {
+  margin-top: 30px;
   border: 1px solid #ddd;
   border-radius: 4px;
   height: 35px;
@@ -68,19 +86,22 @@ border: 1px solid #FCAF28;
   background: #24388E;
   cursor: pointer;
 
-transition-duration: 0.15s;
+  transition-duration: 0.15s;
 
 }
-.show-create-container form input::placeholder{
+
+.show-create-container form input::placeholder {
   color: #999;
 }
-.show-create-container form textarea::placeholder{
+
+.show-create-container form textarea::placeholder {
   color: #999;
 
 }
 
 
 .show-create-container form button:hover {
-  background-color: #FCAF28; /* Green */
+  background-color: #FCAF28;
+  /* Green */
   color: #24388E;
 }
