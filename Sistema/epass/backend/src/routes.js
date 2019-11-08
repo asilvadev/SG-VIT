@@ -1,9 +1,15 @@
 const express = require('express');
+const multer = require('multer');
+
+const uploadConfig = require('./config/upload');
+
+
 const UserController = require('./controllers/UserController');
 const PecaController = require('./controllers/PecaController');
 const IngressoController = require('./controllers/IngressoController');
 
 const routes = express.Router();
+const upload = multer(uploadConfig);
 
 routes.get('/', UserController.index);
 
@@ -12,7 +18,7 @@ routes.post('/user/create', UserController.store);
 
 
 routes.get('/show/all', PecaController.index);
-routes.post('/show/create', PecaController.store);
+routes.post('/show/create', upload.single('image') , PecaController.store);
 
 // routes.get('/dashboard/:user_id/ingressos', IngressoController.index);
 // routes.post('/dashboard/:user_id/:peca_id/buy', IngressoController.store);

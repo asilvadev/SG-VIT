@@ -29,7 +29,7 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: 'teste.jpg',
+        //defaultValue: 'teste.jpg',
       },
       classificacao: {
         type: Sequelize.ENUM,

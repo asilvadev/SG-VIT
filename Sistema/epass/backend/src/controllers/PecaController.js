@@ -1,4 +1,7 @@
 const Peca = require('../models/Peca');
+const sharp = require('sharp');
+const path = require('path')
+const fs = require('fs')
 
 module.exports = {
 
@@ -10,9 +13,24 @@ module.exports = {
     },
 
     async store(req, res){
-        const { name, sinopse, director, duration, classificacao, price, genero } = req.body;
+      console.log(req.body);
+      console.log(req.file);
 
-        const peca = await Peca.create({name, sinopse, director, duration, classificacao, price, genero});
+
+        const { name, sinopse, director, duration, classificacao, price, genero } = req.body;
+        const { filename: image } = req.file;
+        const [image_name] = image.split('.');
+        const file_name = `${image_name}.jpg`;
+        await sharp(req.file.path)
+        .resize(500)
+        .jpeg({ quality: 70})
+        .toFile(
+          path.resolve(req.file.destination, 'resized', file_name)
+        )
+
+        fs.unlinkSync(req.file.path);
+
+        const peca = await Peca.create({name, sinopse, director, duration, classificacao, price, genero, image});
 
         return res.json(peca);
     }
