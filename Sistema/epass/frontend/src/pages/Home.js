@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState }from "react";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 
 import "./Home.css";
 import "./slider-animations.css";
 
-// import api from '../services/api';
+import api from '../services/api';
 import logo from "../assets/epass.png";
 
 // import logo from '../assets/epass.png';
@@ -33,24 +33,49 @@ const content = [
   }
 ];
 
-export default function Home() {
+export default function Home({ history }) {
+  const [pecas, setPecas] = useState([]);
+
+  useEffect(()=>{
+    async function loadPecas(){
+      const response = await api.get('/show/all');
+
+      // console.log(response.data);
+      setPecas(response.data);
+    }
+    loadPecas();
+  }, []);
+
+  async function handleDetails(e){
+
+    console.log(pecas.id);
+    history.push(`/show/${pecas.id}`);
+  }
+
+
   return (
-    // <h1>oi</h1>
+
     <Slider className="slider-wrapper" autoplay duration={6000}>
-      {content.map((item, index) => (
+      {pecas.map((peca => (
         <div
-          key={index}
+          key={peca.id}
           className="slider-content"
           autoplay="20"
-          style={{ background: `url('${item.image}') no-repeat center center` }}
+          style={{ background: `url('http://localhost:3333/files/${peca.image}') no-repeat center center` }}
         >
           <div className="inner">
-            <h1>{item.title}</h1>
-            <p>{item.description}</p>
-            <button>{item.button}</button>
+            <h1>{peca.name}</h1>
+            <p>{peca.sinopse}</p>
+            <button type="submit" id="detail">Cadastrar</button>
+
           </div>
         </div>
-      ))}
+      )))}
     </Slider>
+
+
   );
 }
+
+
+
