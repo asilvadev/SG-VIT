@@ -38,23 +38,26 @@ header section a {
   box-sizing: border-box;
   padding: 15px 40px;
   font-weight: bold;
-  color: #24388E;;
+  color: #24388E;
+  ;
   font-size: 14px;
   cursor: pointer;
 
 }
-.slider-wrapper .inner button#detail:hover{
+
+.slider-wrapper .inner button#detail:hover {
 
 
 
   border: none;
-  background:#24388E;
+  background: #24388E;
   border-radius: 30px;
   text-transform: uppercase;
   box-sizing: border-box;
   padding: 15px 40px;
   font-weight: bold;
-  color: #fff;;
+  color: #fff;
+  ;
   font-size: 14px;
   cursor: pointer;
 
@@ -235,34 +238,45 @@ header section a {
     font-size: 32px;
   }
 }
+
 .cont-widget {
   max-width: 330px;
   background-color: #24388E;
   position: absolute;
   border-radius: 10px;
-  box-shadow: 12px 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 12px 4px 20px rgba(0, 0, 0, 0.1);
   background: #fff;
+  margin: 20px 0 30px 30px;
+  display: flex;
 }
-.card-evento a.link .container-img{
+
+.cont-widget {
+  /* margin: 50px; */
+
+}
+
+.card-evento a.link .container-img {
   position: relative;
   height: 200px;
   display: block;
-    overflow: hidden;
-    width: 330px;
-    max-width: 100%;
-    height: 160px;
-    text-align: center;
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: .2s all linear;
-    cursor: pointer;
+  overflow: hidden;
+  width: 330px;
+  max-width: 100%;
+  height: 160px;
+  text-align: center;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: .2s all linear;
+  cursor: pointer;
 }
+
 .slick-initialized .slick-slide {
   display: block;
 }
+
 /* .slick-slide {
   float: left;
   height: 100%;
@@ -272,13 +286,15 @@ header section a {
 .card-evento a.link {
   height: 200px;
   width: 100%;
-    background: #000;
-    cursor: pointer;
+  background: #000;
+  cursor: pointer;
   transition: 0.3s all linear;
 }
+
 .card-evento a.link .container-img {
   position: relative;
 }
+
 .card-evento a.link .container-img {
   display: block;
   overflow: hidden;
@@ -287,6 +303,7 @@ header section a {
   height: 160px;
   text-align: center;
 }
+
 .card-evento a.link .container-img:before {
   content: '';
   display: block;
@@ -295,25 +312,22 @@ header section a {
   height: 100%;
   transition: .2s all linear;
 }
+
 .card-info {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.card-info .info-evento .local-nome {
-  width: 165px;
-  font-size: 13px;
-  overflow: hidden;
-  color: #9C9C9C;
-  height: 36px;
-  display: table-cell;
-  vertical-align: middle;
-}
+
 .info-evento {
   margin: 0 auto;
   display: inline-block;
   width: 100%;
   position: relative;
 }
+
+
+
+
 
 .minicard-data {
   width: 66px;
@@ -323,6 +337,7 @@ header section a {
   position: relative;
   float: left;
 }
+
 .minicard-data .data-semana {
   min-width: 66px;
   width: 100%;
@@ -341,12 +356,13 @@ header section a {
   font-weight: bold;
   line-height: 1;
   text-align: center;
-  color: #d63785;
+  color: #24388E;
   text-transform: uppercase;
   width: 100%;
   display: block;
   margin: 4px 0;
 }
+
 .minicard-data .data-mes {
   width: 100%;
   height: 16px;
@@ -360,11 +376,12 @@ header section a {
   display: block;
   text-transform: uppercase;
   margin: 4px 0;
-  background: #d63785;
+  background: #FCAF28;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.card-info .info-evento .local-nome {
+
+.info-evento .infoCardDesk .local-nome {
   width: 165px;
   font-size: 13px;
   overflow: hidden;
@@ -375,3 +392,56 @@ header section a {
 }
 
 
+
+.card-info .info-evento .evento-nome {
+  width: 175px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  color: #3c3937;
+  overflow: hidden;
+  height: 36px;
+  /* display: table-cell; */
+  vertical-align: middle;
+}
+
+.card-info .evento-cidade {
+  width: 100%;
+  float: left;
+  height: auto;
+  font-size: 12.2px;
+  font-weight: 300;
+  text-align: left;
+  display: block;
+  color: #24388E;
+  padding: 5px 0px;
+}
+
+.lozad {
+  max-width: 100%;
+  height: auto;
+}
+
+.infoCardDesk {
+  overflow: hidden;
+  display: block;
+  padding: 5px 0px;
+  /* display: inline-block; */
+  /* width: 100%; */
+  position: relative;
+}
+
+.seeall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 30px 0;
+}
+
+.seeall .ver-todos {
+
+  display: block;
+  text-decoration: none;
+  color: #FCAF28;
+
+}
