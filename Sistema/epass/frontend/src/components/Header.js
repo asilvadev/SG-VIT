@@ -28,12 +28,12 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="/signin" className="">
+            <a href="/signup" className="">
               CRIAR CONTA
             </a>
           </li>
           <li id="entrar">
-            <a href="/signup" className="">
+            <a href="/signin" className="">
               ENTRAR
             </a>
           </li>

@@ -37,6 +37,11 @@ module.exports = {
 
     if (compareHash) {
       return res.json(bd_user);
+    } else {
+      return res.send({
+        success: false,
+        message: "Error: Senha invalida."
+      });
     }
 
     // const pw = bcrypt.compare(senha, bd_user.senha);
