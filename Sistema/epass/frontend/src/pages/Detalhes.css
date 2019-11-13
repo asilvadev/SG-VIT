@@ -1,0 +1,238 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  clear: both;
+}
+
+.banner .item img {
+  text-align: center;
+  width: 100%;
+  height: 450px;
+}
+
+.conteudo {
+  padding: 40px 50px 75px 50px;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.conteudo .servicos {
+  position: absolute;
+  top: -34px;
+  z-index: 10;
+  width: 100%;
+  padding: 0 50px;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.conteudo .servicos .btn-comprar button#comprar {
+  height: 60px;
+  width: 220px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background: #24388E;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 27px 0 rgba(0, 0, 0, 0.3);
+  float: right;
+}
+
+.conteudo .servicos .btn-comprar button#comprar:hover {
+  height: 60px;
+  width: 220px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: bold;
+  color: #24388E;
+  background: #FCAF28;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 27px 0 rgba(0, 0, 0, 0.3);
+  float: right;
+}
+
+.row {
+
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.breadcrum {
+  z-index: 11;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: #3c3937 !important;
+  padding-left: 15px;
+  position: relative;
+  margin-top: 15px;
+
+}
+
+.pull-left {
+  float: left !important;
+}
+
+
+
+.name-event {
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.name-event .principal {
+
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.row .name-event hr {
+  width: 26px;
+  height: 4px;
+  background-color: #FCAF28;
+  border: none;
+  position: absolute;
+  padding: 0;
+  margin: 0px;
+  bottom: 5px;
+}
+
+.row .event-data {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card-info {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.info-event {
+  text-align: center;
+  height: auto;
+
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+.col {
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.event-data .minicard-data .data-semana {
+  width: 100%;
+  height: 18px;
+  display: block;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+
+}
+
+.event-data .minicard-data .data-layer {
+  height: auto;
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  color: #d63785;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  margin: 4px 0;
+}
+
+.event-data .minicard-data .data-mes {
+  height: 26px;
+  width: 100%;
+  line-height: 14px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  position: absolute;
+  bottom: auto;
+  text-align: center;
+  color: #fff;
+  display: block;
+  text-transform: uppercase;
+  background: #d63785;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.infoCard {
+  width: 100%;
+  float: right;
+  max-width: 121px;
+  min-height: 106px;
+  height: auto;
+  margin-top: 25px;
+  padding-bottom: 30px;
+  margin: 0;
+  clear: both;
+  background: #fff;
+  text-align: center;
+  position: relative;
+
+}
+
+.texto {
+  height: 56px;
+  width: 121px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 21px;
+  font-weight: bold !important;
+}
+
+.event-data .infoCard .bottom-label {
+  height: 26px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 0px 0;
+  background: #d63785;
+  width: 100%;
+  display: inline-block;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -242,7 +242,7 @@ header section a {
 .cont-widget {
   max-width: 330px;
   background-color: #24388E;
-  position: absolute;
+  flex: 1 0 21%;
   border-radius: 10px;
   box-shadow: 12px 4px 20px rgba(0, 0, 0, 0.1);
   background: #fff;
@@ -250,8 +250,9 @@ header section a {
   display: flex;
 }
 
-.cont-widget {
-  /* margin: 50px; */
+.fdf {
+  display: flex;
+  flex-wrap: wrap;
 
 }
 
@@ -389,6 +390,7 @@ header section a {
   height: 36px;
   display: table-cell;
   vertical-align: middle;
+
 }
 
 
@@ -425,10 +427,14 @@ header section a {
 .infoCardDesk {
   overflow: hidden;
   display: block;
-  padding: 5px 0px;
+  padding: 5px 15px 5px 0px;
   /* display: inline-block; */
   /* width: 100%; */
   position: relative;
+}
+
+.infoCardDesk a:first-child {
+  padding-right: 15px;
 }
 
 .seeall {
@@ -444,4 +450,60 @@ header section a {
   text-decoration: none;
   color: #FCAF28;
 
+}
+
+.fdf .cont-widget .card-info .info-evento .buttons button#visualizar {
+  border: none;
+  background: #FCAF28;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  font-weight: bold;
+  color: #24388E;
+  font-size: 10px;
+  cursor: pointer;
+  padding-right: 15px;
+}
+
+.fdf .cont-widget .card-info .info-evento .buttons button#comprar {
+  border: none;
+  background: #24388E;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  font-weight: bold;
+  color: #FCAF28;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.fdf .cont-widget .card-info .info-evento .buttons button#visualizar:hover {
+  border: none;
+  background: #24388E;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  font-weight: bold;
+  padding-right: 15px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.fdf .cont-widget .card-info .info-evento .buttons button#comprar:hover {
+  border: none;
+  background: #FCAF28;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  font-weight: bold;
+  color: #24388E;
+
+  font-size: 10px;
+  cursor: pointer;
 }
