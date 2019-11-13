@@ -7,6 +7,18 @@ module.exports = {
 
         return res.json(users);
     },
+    async find(req, res){
+
+        const { user_id } = req.params;
+
+    const user = await User.findByPk(user_id);
+
+    if (!user) {
+      return res.status(400).json({ error: "Usuário não encontrado" });
+    }
+
+    return res.json(user);
+    },
 
     async store(req, res){
         const { name, email, cpf, senha, is_func, is_admin} = req.body;
@@ -42,8 +54,8 @@ module.exports = {
             message: 'Error: CPF length invalid.'
           });
         }
-        
-        
+
+
 
 
 

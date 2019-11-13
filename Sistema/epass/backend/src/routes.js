@@ -14,11 +14,12 @@ const upload = multer(uploadConfig);
 routes.get('/', UserController.index);
 
 routes.get('/user/all', UserController.index);
+routes.get('/user/:user_id', UserController.find);
 routes.post('/user/create', UserController.store);
 
 
 routes.get('/show/all', PecaController.index);
-routes.get('/show/:peca_id', PecaController.detail);
+routes.get('/show/:id', PecaController.detail);
 routes.post('/show/create', upload.single('image') , PecaController.store);
 
 // routes.get('/dashboard/:user_id/ingressos', IngressoController.index);
