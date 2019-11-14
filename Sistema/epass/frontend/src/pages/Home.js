@@ -42,7 +42,7 @@ export default function Home({ history }) {
               <p>{peca.sinopse}</p>
               <Link to={`/show/${peca.id}`}>
                 <button type="submit" id="detail" value={peca.id}>
-                  Cadastrar
+                  Detalhes
                 </button>
               </Link>
             </div>
