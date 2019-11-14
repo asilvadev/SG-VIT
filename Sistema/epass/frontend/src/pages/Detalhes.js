@@ -6,6 +6,9 @@ import "react-animated-slider/build/horizontal.css";
 import "./Detalhes.css";
 import "./slider-animations.css";
 
+import time from "../assets/clock.svg";
+import placeit from "../assets/place.svg";
+
 import api from "../services/api";
 
 export default function Detalhes({ match, history }) {
@@ -47,10 +50,8 @@ export default function Detalhes({ match, history }) {
           </div>
         </div>
         <div className="row">
-          <Link to={`/show/${peca.id}`}>
-            <a href="/" className="pull-left breadcrum">
-              ← Voltar para Home
-            </a>
+          <Link to={`/`}>
+            <a className="pull-left breadcrum">← Voltar para Home</a>
           </Link>
         </div>
         <div className="row">
@@ -70,29 +71,53 @@ export default function Detalhes({ match, history }) {
                 </div>
                 <div className="col">
                   <div className="infoCard horario">
+                    <img src={time} alt="" className="time" />
                     <div className="texto bold">22:00</div>
                     <div className="bottom-label">Horario</div>
                   </div>
                 </div>
-                <div className="col"></div>
+                <div className="col">
+                  <div className="infoCard local">
+                    <img src={placeit} alt="" className="placeit" />
+                    <div className="teatro">
+                      <div className="texto-bold">Teatro VillageMall</div>
+                      <div className="texto-pequeno">Natal-RN</div>
+                    </div>
+                    <div className="bottom-label">Local</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div className="descricao-evento">
+            <p>
+              Pink Floyd Experience In Concert é uma imersão musical e visual na
+              histórias e mentes de David Gilmour e Roger Waters, que juntos,
+              foram responsáveis pela história musical de uma das maiores bandas
+              de todos os tempos! Além de efeitos visuais, projeções em Mapping
+              3D e um palco temático, o show conta com orquestra ao vivo regida
+              por um maestro que agregam ainda mais qualidade e elevam o nível
+              musical do espetáculo. O público pode esperar uma verdadeira
+              viagem no tempo com as fases e músicas mais importantes desta
+              grande banda, num espetáculo que promete emocionar a todos.
+            </p>
+            <p>
+              <strong>
+                ________________________________________________________________________________
+              </strong>
+            </p>
+            <p>
+              <strong>Duração: 80 minutos</strong>
+            </p>
+            <p>
+              <strong>Classificação Etária:</strong> Livre. Menores de 14 anos,
+              somente poderão entrar acompanhados dos pais ou responsáveis.
+              Crianças até 24 meses de idade que ficarem no colo dos pais, não
+              pagam.
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* <Link to={`/`}>
-              <button type="submit" id="detail">Voltar</button>
-            </Link>
-      <h1>{peca.name}</h1>
-      <h2>{peca.sinopse}</h2>
-      <h2>{peca.director}</h2>
-      <h2>{peca.genero}</h2>
-      <h2>{peca.duration}h - R$ {peca.price},00</h2>
-      <img src={`http://localhost:3333/files/${peca.image}`} alt=""/>
-      <Link to={`/comprar/${peca.id}`}>
-              <button type="submit" id="detail" >Comprar</button>
-            </Link> */}
     </div>
   );
 }

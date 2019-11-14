@@ -73,7 +73,7 @@ export default function Home({ history }) {
                 </span>
                 <div class="card-info">
                   <div class="info-evento">
-                    <div class="minicard-data">
+                    <div class="minicard-data-info">
                       <span class="data-semana">Sex</span>
                       <span class="data-layer">15</span>
                       <span class="data-mes">NOV</span>
