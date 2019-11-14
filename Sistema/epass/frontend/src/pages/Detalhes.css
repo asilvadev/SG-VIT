@@ -181,8 +181,48 @@
 .teatro {
   font-size: 14px;
   padding: 5px 0 5px 0;
+}
+
+.minicard-data {
+  width: 100%;
+  float: right;
+  max-width: 121px;
+  min-height: 106px;
+  height: auto;
+  margin-top: 25px;
+  padding-bottom: 30px;
+  margin: 0;
+  clear: both;
+  text-align: center;
+  position: relative;
+  background: #fff;
+}
+
+.event-data .minicard-data {
+  margin-top: 0;
+}
+
+.time {
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.placeit {
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.teatro {
+  font-size: 14px;
+  padding: 5px 0 5px 0;
 
 }
+
+
 
 .texto-bold {
   font-weight: bold !important;
@@ -190,8 +230,10 @@
 
 }
 
+
+
 .texto-pequeno {
-  color: #d63785;
+  color: #24388E;
   font-weight: 500;
 }
 
@@ -204,7 +246,6 @@
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
-
   padding: 10px 0 20px 0;
 }
 
@@ -214,7 +255,7 @@
   font-weight: bold;
   line-height: 1;
   text-align: center;
-  color: #d63785;
+  color: #24388E;
   text-transform: uppercase;
   width: 100%;
   display: block;
@@ -236,7 +277,7 @@
   color: #fff;
   display: block;
   text-transform: uppercase;
-  background: #d63785;
+  background: #24388E;
 
 }
 
@@ -263,6 +304,8 @@
   margin-right: 200px;
 }
 
+
+
 .texto {
   padding: 5px 0 5px 0px;
   width: 121px;
@@ -283,7 +326,7 @@
   text-transform: uppercase;
   color: #fff;
   margin: 0 0 0px 0;
-  background: #d63785;
+  background: #24388E;
   width: 100%;
   display: inline-block;
   position: absolute;
