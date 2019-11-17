@@ -8,6 +8,20 @@ module.exports = {
     return res.json(response);
   },
 
+
+    async find(req, res){
+
+        const { user_id } = req.params;
+
+    const user = await User.findByPk(user_id);
+
+    if (!user) {
+      return res.status(400).json({ error: "Usuário não encontrado" });
+    }
+
+    return res.json(user);
+    },
+
   async login(req, res) {
     const { email, senha } = req.body;
     if (!email) {
@@ -33,7 +47,9 @@ module.exports = {
       });
     }
 
+
     const compareHash = await bcrypt.compare(senha, bd_user.senha);
+
 
     if (compareHash) {
       return res.json(bd_user);
@@ -43,6 +59,7 @@ module.exports = {
         message: "Error: Senha invalida."
       });
     }
+
 
     // const pw = bcrypt.compare(senha, bd_user.senha);
     // if (!pw) {

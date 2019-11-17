@@ -1,0 +1,18 @@
+.copyright {
+  float: left;
+  width: 100%;
+  color: #fff;
+  background-color: #484543;
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 150px;
+}
+
+.copyright .local-text {
+  color: #ccc;
+  display: block;
+  font-size: 12px;
+  margin-top: 7px;
+}

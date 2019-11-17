@@ -36,9 +36,9 @@ module.exports = {
   },
 
   async detail(req, res) {
-    const { peca_id } = req.params;
+    const { id } = req.params;
 
-    const peca = await Peca.findByPk(peca_id);
+    const peca = await Peca.findByPk(id);
 
     if (!peca) {
       return res.status(400).json({ error: "Peca não encontrada" });

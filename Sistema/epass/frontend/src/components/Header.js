@@ -23,7 +23,7 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="/show/all" className="">
+            <a href="/show" className="">
               ESPETACULOS
             </a>
           </li>
