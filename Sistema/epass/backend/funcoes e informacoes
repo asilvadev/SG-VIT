@@ -1,0 +1,64 @@
+yarn sequelize migration:create --name=create-users
+yarn sequelize seed:create --name=create-users
+
+
+yarn sequelize db:migrate
+yarn sequelize db:migrate:undo:all
+
+yarn sequelize db:seed:all
+
+
+// RELACIONAMENTOS
+
+1 Usuário pode possuir N Ingressos
+1 Ingresso pertence a 1 Usuario
+
+1 Peca possui N Ingressos
+1 Ingresso pertence a 1 Peca
+
+validações na camada frontend
+https://www.youtube.com/watch?v=Vtx6H9dLP4A
+
+
+
+-> fazer o espetaculo (peca + end teatro + data/hora)
+-> criar models teatro com as info endereco, cidade, nome do teatro.
+-> fazer o valor do ingresso meia e interia e deixar o usuario pra dar select no form
+
+{
+    "nome" : "Alan",
+    "email" : "email@email.com",
+    "cpf" : "12345678910",
+    "ingressos" :
+    [
+        {
+            "tipo" : "Meia"
+            "valor" : "55,00"
+            "localizacao" : "E9"
+            "peca" :
+                {
+                    "nome" : "Os melhores do mundo"
+                    "descricao" : "descricao da peca teatral"
+                    "duracao" : "01:30:00"
+                    "diretor" : "Compahia os Melhores do Mundo"
+                }
+        },
+        {
+            "tipo" : "Meia"
+            "valor" : "40,00"
+            "localizacao" : "B5"
+            "peca" :
+                {
+                    "nome" : "4 amigos"
+                    "descricao" : "descricao da peca teatral"
+                    "duracao" : "01:30:00"
+                    "diretor" : "JP e Alex"
+                }
+        }
+    ]
+
+
+
+
+
+}

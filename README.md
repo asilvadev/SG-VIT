@@ -11,6 +11,10 @@
 ## Sistema de Gerenciamento de Venda de Ingressos de Teatro
 <br>
 
+## Screenshots
+**SignUp e SignIn**<br>
+![](Sistema/prints/sign.jpg)<br>
+
 ## Documento de Requisitos
 |Versão|Data|Download|
 |-|-|-|
@@ -25,12 +29,11 @@
 |-|-|-|-|
 |01|Levantamento de ferramentas para desenvolvimendo|12/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/ATA/ATA%2001%20-%20Levantamento%20de%20ferramentas%20para%20desenvolvimento%20-%2012.08.2019.pdf)|
 
-#
+
 ## Contributors
 <a href="https://github.com/asilvadev/SG-VIT/graphs/contributors">
   <img src="https://contributors-img.firebaseapp.com/image?repo=asilvadev/SG-VIT" />
 </a>
 
 Made with [contributors-img](https://contributors-img.firebaseapp.com).
-
 
