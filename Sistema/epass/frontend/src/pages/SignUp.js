@@ -4,6 +4,7 @@ import "./SignUp.css";
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
+import Header from '../components/Header';
 
 export default function SignUp({ history }) {
   const [name, setNome] = React.useState("");
@@ -26,7 +27,9 @@ export default function SignUp({ history }) {
 
   //Pode remover os value (para não aparecer no html)
   return (
-    <div className="signup-container">
+    <div className="externo">
+      <Header />
+      <div className="signup-container">
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <input
@@ -65,5 +68,10 @@ export default function SignUp({ history }) {
         <button type="submit">Cadastrar</button>
       </form>
     </div>
+
+    </div>
+
+
+
   );
 }

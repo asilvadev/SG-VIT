@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
-
+import Header from '../components/Header';
 //CAROUSEL
 import Carousel from "../components/carousel/carousel";
 import Dots from "../components/carousel/indicator-dots";
@@ -27,7 +27,10 @@ export default function Home({ history }) {
   }, []);
 
   return (
+
+
     <div className="externo">
+      <Header />
       <Slider className="slider-wrapper" autoPlay duration={6000}>
         {pecas.map(peca => (
           <div
@@ -108,5 +111,6 @@ export default function Home({ history }) {
         ))}
       </div>
     </div>
+
   );
 }

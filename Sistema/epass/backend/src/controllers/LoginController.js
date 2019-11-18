@@ -41,6 +41,7 @@ module.exports = {
         success: true,
         id: bd_user.id,
         message: 'Authentication successful!',
+        expira: (new Date().getTime()+(1 * 60 * 1000)),
         token: token
       });
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "react-animated-slider/build/horizontal.css";
+import Header from '../components/Header';
 
 import "./Detalhes.css";
 import "./slider-animations.css";
@@ -29,6 +30,7 @@ export default function Detalhes({ match, history }) {
 
   return (
     <div className="externo">
+      <Header />
       <div className="banner">
         <div className="item">
           <picture>

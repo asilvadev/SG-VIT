@@ -2,6 +2,7 @@ import React from "react";
 import "./SignIn.css";
 
 import api from "../services/api";
+import Header from '../components/Header';
 
 import logo from "../assets/epass.png";
 
@@ -21,6 +22,8 @@ export default function SignIn({history}) {
         console.log(data)
         localStorage.setItem('app-token', data.token);
         localStorage.setItem('id', data.id);
+        localStorage.setItem('expiresIn', data.expira);
+        localStorage.setItem('currentDate', new Date().getTime());
         history.push('/dashboard')
 
       }
@@ -31,6 +34,8 @@ export default function SignIn({history}) {
   }
 
   return (
+    <div className="externo">
+      <Header />
     <div className="signin-container">
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
@@ -48,6 +53,7 @@ export default function SignIn({history}) {
         />
         <button type="submit">Entrar</button>
       </form>
+    </div>
     </div>
   );
 }
