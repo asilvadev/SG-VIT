@@ -3,9 +3,11 @@ const multer = require("multer");
 
 const uploadConfig = require("./config/upload");
 
+const Auth = require("./controllers/Auth");
 const UserController = require("./controllers/UserController");
 const PecaController = require("./controllers/PecaController");
 const IngressoController = require("./controllers/IngressoController");
+const LoginController = require("./controllers/LoginController");
 
 const routes = express.Router();
 const upload = multer(uploadConfig);
@@ -13,13 +15,13 @@ const upload = multer(uploadConfig);
 
 routes.get('/', UserController.index);
 
-routes.get('/user/all', UserController.index);
+routes.get('/user/all', Auth.checkToken, UserController.index);
 routes.get('/user/:user_id', UserController.find);
 routes.post('/user/create', UserController.store);
 
 
-routes.get("/user/all", UserController.index);
-routes.post("/user/login", UserController.login);
+
+routes.post("/user/login", LoginController.login);
 routes.post("/user/create", UserController.store);
 
 

@@ -5,24 +5,29 @@ import api from "../services/api";
 
 import logo from "../assets/epass.png";
 
-export default function SignIn(history) {
+export default function SignIn({history}) {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
 
   function handlesSubmit(e) {
     e.preventDefault();
 
-    const response = api.post("/user/login", {
+    api.post("/user/login", {
       email,
       senha
-    });
+    }).then(response => {
+      const {data} = response
+      if(data.success){
+        console.log(data)
+        localStorage.setItem('app-token', data.token);
+        localStorage.setItem('id', data.id);
+        history.push('/dashboard')
 
-    console.log(response);
-    if (response.success) {
-      console.log(response.id);
+      }
     }
 
-    // history.push(`/dashboard/${id}`);
+      );
+
   }
 
   return (

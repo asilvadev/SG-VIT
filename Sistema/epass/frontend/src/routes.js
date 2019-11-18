@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import ShowCreate from "./pages/ShowCreate";
 import NotFound from "./pages/NotFound";
 
+import PrivateRoute from "./pages/PivateRoute";
+
 export default function Routes() {
   return (
     <BrowserRouter>
@@ -16,7 +18,7 @@ export default function Routes() {
         <Route path="/" exact component={Home} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="/show/create" exact component={ShowCreate} />
         <Route path="/show/:id" exact component={Detalhes} />
 
