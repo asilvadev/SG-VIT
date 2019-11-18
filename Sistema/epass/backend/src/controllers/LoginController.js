@@ -1,14 +1,12 @@
-const User = require('../models/User');
+const User = require("../models/User");
 const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
-const config = require('../config/config');
-
+const jwt = require("jsonwebtoken");
+const config = require("../config/config");
 
 module.exports = {
-
   async login(req, res) {
     const { email, senha } = req.body;
-    if (!email || !senha){
+    if (!email || !senha) {
       return res.send({
         success: false,
         message: "Error: Email or Password cannot be blank."
@@ -26,31 +24,26 @@ module.exports = {
       });
     }
 
-
     const compareHash = await bcrypt.compare(senha, bd_user.senha);
 
-
     if (compareHash) {
-      const token = jwt.sign({bd_user},
-        config.secret,
-        { expiresIn: '1h' // expires in 1 hours
-        }
-      );
+      const token = jwt.sign({ bd_user }, config.secret, {
+        expiresIn: "1h" // expires in 1 hours
+      });
 
       return res.json({
         success: true,
         id: bd_user.id,
-        message: 'Authentication successful!',
-        expira: (new Date().getTime()+(1 * 60 * 1000)),
+        admin: bd_user.is_admin,
+        message: "Authentication successful!",
+        expira: new Date().getTime() + 60 * 60 * 1000, // 1h
         token: token
       });
-
     } else {
       return res.send({
         success: false,
         message: "Error: Senha invalida."
       });
     }
-
-  },
-}
+  }
+};

@@ -4,9 +4,9 @@ import Link from "react-router-dom";
 import api from "../services/api";
 import logo from "../assets/epass.png";
 
-import "./Dashboard.css";
+import "./DashboardAdmin.css";
 
-export default function Dashboard({ history }) {
+export default function DashboardAdmin({ history }) {
   const id = localStorage.getItem("id");
   const expireTime = localStorage.getItem("expiresIn");
   const curretTime = localStorage.getItem("currentDate");
@@ -30,6 +30,7 @@ export default function Dashboard({ history }) {
       const time = new Date().getTime();
       if (time > expireTime) {
         localStorage.removeItem("app-token");
+        localStorage.removeItem("admin");
         localStorage.removeItem("id");
         localStorage.removeItem("expiresIn");
         localStorage.removeItem("currentDate");
@@ -44,6 +45,7 @@ export default function Dashboard({ history }) {
   function handlesSubmit(e) {
     e.preventDefault();
     localStorage.removeItem("app-token");
+    localStorage.removeItem("admin");
     localStorage.removeItem("id");
     localStorage.removeItem("expiresIn");
     localStorage.removeItem("currentDate");
@@ -59,6 +61,9 @@ export default function Dashboard({ history }) {
             <img right src={logo} alt="ePass" />
           </a>
           <ul>
+            <li>
+              <strong>Admin</strong>
+            </li>
             <li>
               <a href="" className="sair" onClick={handlesSubmit}>
                 Sair
@@ -77,19 +82,19 @@ export default function Dashboard({ history }) {
         >
           <TabList className="tablist">
             <Tab className="tablink" tabFor="one">
-              Inicio
+              CADASTRAR PEÇAS
             </Tab>
             <Tab className="tablink" tabFor="two">
-              Peças
+              EDITAR PEÇAS
             </Tab>
             <Tab className="tablink" tabFor="three">
-              Meus Ingressos
+              REMOVER PEÇAS
             </Tab>
             <Tab className="tablink" tabFor="four">
               Configurações
             </Tab>
           </TabList>
-          <TabPanel tabId="one"></TabPanel>
+          <TabPanel tabId="one">Admin panel</TabPanel>
           <TabPanel tabId="two"></TabPanel>
           <TabPanel tabId="three">
             <p>Tab 3 content</p>
