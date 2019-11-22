@@ -31,6 +31,7 @@ export default function Dashboard({ history }) {
       if (time > expireTime) {
         localStorage.removeItem("app-token");
         localStorage.removeItem("id");
+        localStorage.removeItem("admin");
         localStorage.removeItem("expiresIn");
         localStorage.removeItem("currentDate");
       }
@@ -45,6 +46,7 @@ export default function Dashboard({ history }) {
     e.preventDefault();
     localStorage.removeItem("app-token");
     localStorage.removeItem("id");
+    localStorage.removeItem("admin");
     localStorage.removeItem("expiresIn");
     localStorage.removeItem("currentDate");
 

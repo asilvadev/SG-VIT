@@ -22,7 +22,7 @@ export default function Routes() {
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRouteAdmin path="/admin/dashboard" component={DashboardAdmin} />
-        <Route path="/show/create" exact component={ShowCreate} />
+        <PrivateRouteAdmin path="/show/create" exact component={ShowCreate} />
         <Route path="/show/:id" exact component={Detalhes} />
 
         <Route path="/404" component={NotFound} />

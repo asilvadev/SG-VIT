@@ -31,7 +31,8 @@ export default function ShowCreat({ history }) {
 
     console.log(data);
     await api.post("/show/create", data);
-    // history.push('/dashboard');
+    return
+
   }
 
   //Pode remover os value (para não aparecer no html)
@@ -79,20 +80,7 @@ export default function ShowCreat({ history }) {
           value={duration}
           onChange={e => setDuration(e.target.value)}
         />
-        {/* <input
-          type="enum"
-          placeholder="Livre ou Adulto"
-          value={classificacao}
-          onChange={e => setClassificacao(e.target.value)}
-        /> */}
-        {/* <select name="classificacao">
-          <option value="Livre" onChange={e => setClassificacao("Livre")}>
-            Livre
-          </option>
-          <option value="Adulto" onChange={e => setClassificacao("Adulto")}>
-            Adulto
-          </option>
-        </select> */}
+
         <label htmlFor="Classificação" className="Classificação">
           CLASSIFICAÇÃO
         </label>

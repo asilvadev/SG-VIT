@@ -6,6 +6,9 @@ import logo from "../assets/epass.png";
 
 import "./DashboardAdmin.css";
 
+import ShowCreate from './ShowCreate_';
+import Tablelist from '../components/Table';
+
 export default function DashboardAdmin({ history }) {
   const id = localStorage.getItem("id");
   const expireTime = localStorage.getItem("expiresIn");
@@ -82,25 +85,28 @@ export default function DashboardAdmin({ history }) {
         >
           <TabList className="tablist">
             <Tab className="tablink" tabFor="one">
-              CADASTRAR PEÇAS
+              ESPETACULOS
             </Tab>
             <Tab className="tablink" tabFor="two">
-              EDITAR PEÇAS
+              CADASTRAR ESPETACULO
             </Tab>
             <Tab className="tablink" tabFor="three">
-              REMOVER PEÇAS
+              PEÇAS
             </Tab>
             <Tab className="tablink" tabFor="four">
-              Configurações
+              ADICIONAR PEÇA
             </Tab>
           </TabList>
           <TabPanel tabId="one">Admin panel</TabPanel>
-          <TabPanel tabId="two"></TabPanel>
+          <TabPanel tabId="two"> <ShowCreate /></TabPanel>
           <TabPanel tabId="three">
-            <p>Tab 3 content</p>
+          Olá {user.name}, Você está visualizando as peçcas
+          <Tablelist />
           </TabPanel>
           <TabPanel tabId="four">
-            <p>Tab 4 content</p>
+            Olá {user.name}, Você está cadastrando uma peça
+            <ShowCreate />
+
           </TabPanel>
         </Tabs>
       </body>
