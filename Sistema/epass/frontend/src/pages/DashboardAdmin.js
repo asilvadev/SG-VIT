@@ -6,8 +6,8 @@ import logo from "../assets/epass.png";
 
 import "./DashboardAdmin.css";
 
-import ShowCreate from './ShowCreate_';
-import Tablelist from '../components/Table';
+import ShowCreate from "./ShowCreate_";
+import Tablelist from "../components/Table";
 
 export default function DashboardAdmin({ history }) {
   const id = localStorage.getItem("id");
@@ -78,7 +78,7 @@ export default function DashboardAdmin({ history }) {
       <body>
         <Tabs
           className="tabs"
-          defaultTab="one"
+          // defaultTab="one"
           onChange={tabId => {
             console.log(tabId);
           }}
@@ -98,15 +98,17 @@ export default function DashboardAdmin({ history }) {
             </Tab>
           </TabList>
           <TabPanel tabId="one">Admin panel</TabPanel>
-          <TabPanel tabId="two"> <ShowCreate /></TabPanel>
+          <TabPanel tabId="two">
+            {" "}
+            <ShowCreate />
+          </TabPanel>
           <TabPanel tabId="three">
-          Olá {user.name}, Você está visualizando as peçcas
-          <Tablelist />
+            Olá {user.name}, Você está visualizando as peçcas
+            <Tablelist />
           </TabPanel>
           <TabPanel tabId="four">
             Olá {user.name}, Você está cadastrando uma peça
             <ShowCreate />
-
           </TabPanel>
         </Tabs>
       </body>

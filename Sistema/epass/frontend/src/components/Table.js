@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Table } from 'semantic-ui-react'
+import { Table, Button } from "reactstrap";
+import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
+
+import Footer from "./Footer";
+
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+
+// import { Table } from "semantic-ui-react";
 
 import api from "../services/api";
 
-export default function TableExampleColors(){
-  const [pecas, setPecas] = useState([]);
+export default function TableExampleColors({ history, match }) {
+  const [pecas, setPecas] = React.useState([]);
+
   useEffect(() => {
     async function loadPecas() {
       const response = await api.get("/show/all");
@@ -14,38 +23,67 @@ export default function TableExampleColors(){
     }
     loadPecas();
   }, []);
+  async function handlesDelete(e) {
+    await api.post(`/show/delete/${e.target.value}`);
+    window.location.reload();
+    e.preventDefault();
+  }
+  async function handlesEdit(e) {
+    console.log(match);
+  }
+  const columns = [
+    {
+      label: "#"
+    },
+    {
+      label: "Nome"
+    },
+    {
+      label: "Sinopse"
+    },
+    {
+      label: "Diretor"
+    },
+    {
+      label: "Opções"
+    }
+  ];
 
- return (
-<div>
-    {pecas.map(peca => (
-      <Table color="yellow" key={peca.id}>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Nome Peça</Table.HeaderCell>
-            <Table.HeaderCell>Diretor</Table.HeaderCell>
-            <Table.HeaderCell>Classificação</Table.HeaderCell>
-            <Table.HeaderCell>Opções</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+  return (
+    <div>
+      <MDBTable btn>
+        <MDBTableHead columns={columns} />
+        <MDBTableBody>
+          {pecas.map(peca => (
+            <tr>
+              <td>{peca.id}</td>
+              <td>{peca.name}</td>
+              <td>{peca.sinopse}</td>
+              <td>{peca.director}</td>
+              <td>
+                <MDBBtn
+                  color="yellow"
+                  size="sm"
+                  onClick={handlesEdit}
+                  value={peca.id}
+                >
+                  Editar
+                </MDBBtn>
 
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell>{peca.name}</Table.Cell>
-            <Table.Cell>{peca.director}</Table.Cell>
-            <Table.Cell>{peca.classificacao}</Table.Cell>
-            <Table.Cell>
-              <div className="opition">
-              <div className="edit">E</div>
-              <div className="delete">D</div>
-              </div>
-            </Table.Cell>
-          </Table.Row>
-        </Table.Body>
-      </Table>
-    ))}
+                <MDBBtn
+                  color="red"
+                  size="sm"
+                  value={peca.id}
+                  onClick={handlesDelete}
+                >
+                  Excluir
+                </MDBBtn>
+              </td>
+            </tr>
+          ))}
+        </MDBTableBody>
+      </MDBTable>
+      <Footer />
     </div>
- );
-
-
-
+  );
 }

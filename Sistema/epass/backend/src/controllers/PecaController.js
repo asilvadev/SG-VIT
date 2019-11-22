@@ -1,13 +1,11 @@
-const Peca = require('../models/Peca');
-const sharp = require('sharp');
-const path = require('path')
-const fs = require('fs')
+const Peca = require("../models/Peca");
+const sharp = require("sharp");
+const path = require("path");
+const fs = require("fs");
 
 module.exports = {
-
   async index(req, res) {
     const pecas = await Peca.findAll();
-
 
     return res.json(pecas);
   },
@@ -16,21 +14,35 @@ module.exports = {
     console.log(req.body);
     console.log(req.file);
 
-
-    const { name, sinopse, director, duration, classificacao, price, genero } = req.body;
+    const {
+      name,
+      sinopse,
+      director,
+      duration,
+      classificacao,
+      price,
+      genero
+    } = req.body;
     const { filename: image } = req.file;
-    const [image_name] = image.split('.');
+    const [image_name] = image.split(".");
     const file_name = `${image_name}.jpg`;
     await sharp(req.file.path)
       .resize(500)
       .jpeg({ quality: 70 })
-      .toFile(
-        path.resolve(req.file.destination, 'resized', file_name)
-      )
+      .toFile(path.resolve(req.file.destination, "resized", file_name));
 
     fs.unlinkSync(req.file.path);
 
-    const peca = await Peca.create({ name, sinopse, director, duration, classificacao, price, genero, image });
+    const peca = await Peca.create({
+      name,
+      sinopse,
+      director,
+      duration,
+      classificacao,
+      price,
+      genero,
+      image
+    });
 
     return res.json(peca);
   },
@@ -45,6 +57,26 @@ module.exports = {
     }
 
     return res.json(peca);
-  }
-}
+  },
 
+  async destroy(req, res) {
+    const { id } = req.params;
+    Peca.destroy({
+      where: {
+        id
+      }
+    })
+      .then(status =>
+        res.status(201).json({
+          error: false,
+          message: "Peca has been deleted"
+        })
+      )
+      .catch(error =>
+        res.json({
+          error: true,
+          error: error
+        })
+      );
+  }
+};
