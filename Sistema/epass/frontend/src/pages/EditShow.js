@@ -13,7 +13,7 @@ export default function EditShow({ match, history }) {
   const [duration, setDuration] = React.useState("");
   const [classificacao, setClassificacao] = React.useState("");
   const [genero, setGenero] = React.useState("");
-  const [price, setPrice] = React.useState("");
+
   const [image, setImage] = React.useState(null);
 
   async function handlesSubmit(e) {
@@ -26,18 +26,19 @@ export default function EditShow({ match, history }) {
     data.append("duration", duration);
     data.append("classificacao", classificacao);
     data.append("genero", genero);
-    data.append("price", price);
+
     data.append("image", image);
 
     console.log(match);
     console.log(data);
     await api.put(`/show/update/${match.params.id}`, data);
-    history.push('/admin/dashboard');
+    window.location.reload();
   }
 
   //Pode remover os value (para não aparecer no html)
   return (
     <div className="show-create-container">
+       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <label htmlFor="pecaNome" className="pecaNome">
           NOME DA PEÇA
@@ -105,23 +106,14 @@ export default function EditShow({ match, history }) {
           value={genero}
           onChange={e => setGenero(e.target.value)}
         />
-        <label htmlFor="preco" className="preco">
-          PREÇO
-        </label>
-        <input
-          required
-          type="number"
-          placeholder="Valor"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />{" "}
+
         <label id="imgpeca">IMAGEM</label>
         <input
           required
           type="file"
           onChange={e => setImage(e.target.files[0])}
         />
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Editar</button>
       </form>
     </div>
   );

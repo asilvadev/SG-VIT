@@ -13,7 +13,7 @@ export default function ShowCreat({ history }) {
   const [duration, setDuration] = React.useState("");
   const [classificacao, setClassificacao] = React.useState("");
   const [genero, setGenero] = React.useState("");
-  const [price, setPrice] = React.useState("");
+
   const [image, setImage] = React.useState(null);
 
   async function handlesSubmit(e) {
@@ -26,12 +26,12 @@ export default function ShowCreat({ history }) {
     data.append("duration", duration);
     data.append("classificacao", classificacao);
     data.append("genero", genero);
-    data.append("price", price);
+
     data.append("image", image);
 
     console.log(data);
     await api.post("/show/create", data);
-     window.location.reload(false);
+     window.location.reload();
 
   }
 
@@ -106,16 +106,7 @@ export default function ShowCreat({ history }) {
           value={genero}
           onChange={e => setGenero(e.target.value)}
         />
-        <label htmlFor="preco" className="preco">
-          PREÇO
-        </label>
-        <input
-          required
-          type="number"
-          placeholder="Valor"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />{" "}
+
         <label id="imgpeca">IMAGEM</label>
         <input
           required

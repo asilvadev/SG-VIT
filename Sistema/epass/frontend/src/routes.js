@@ -30,8 +30,8 @@ export default function Routes() {
         <PrivateRouteAdmin path="/show/create" exact component={ShowCreate} />
         <PrivateRouteAdmin path="/show/update/:id" exact component={EditShow} />
 
-        <PrivateRouteAdmin path="/show/create" exact component={ShowCreate} />
-        <PrivateRouteAdmin path="/show/update/:id" exact component={EditShow} />
+        <PrivateRouteAdmin path="/espetaculo/create" exact component={EspecCreate} />
+        <PrivateRouteAdmin path="/espetaculo/update/:id" exact component={EditEspec} />
 
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />

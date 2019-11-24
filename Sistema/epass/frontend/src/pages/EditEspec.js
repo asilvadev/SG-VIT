@@ -1,110 +1,110 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-// import "./EditEspec.css";
+import "./EditEspec.css";
 
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
 
-export default function EditEspec({ match, history }) {
-  const [name, setName] = React.useState("");
-  const [sinopse, setSinopse] = React.useState("");
-  const [director, setDirector] = React.useState("");
-  const [duration, setDuration] = React.useState("");
-  const [classificacao, setClassificacao] = React.useState("");
-  const [genero, setGenero] = React.useState("");
+export default function EditEspec({ history, match }) {
+  const [hora, setHora] = React.useState("");
+  const [dia, setDia] = React.useState("");
+  const [mes, setMes] = React.useState("");
   const [price, setPrice] = React.useState("");
-  const [image, setImage] = React.useState(null);
+  const [peca_id, setPecaID] = React.useState();
+
+  const [pecas, setPecas] = React.useState([]);
+
+
+
+
+  useEffect(() => {
+    async function loadPecas() {
+      const response = await api.get("/show/all");
+
+      setPecas(response.data);
+      console.log(response.data);
+    }
+    loadPecas();
+  }, []);
+
+
 
   async function handlesSubmit(e) {
     e.preventDefault();
-    const data = new FormData();
 
-    data.append("name", name);
-    data.append("sinopse", sinopse);
-    data.append("director", director);
-    data.append("duration", duration);
-    data.append("classificacao", classificacao);
-    data.append("genero", genero);
-    data.append("price", price);
-    data.append("image", image);
 
-    console.log(match);
-    console.log(data);
-    await api.put(`/show/update/${match.params.id}`, data);
-    history.push('/admin/dashboard');
+
+    await api.put(`/espetaculo/update/${match.params.id}`, {
+      hora,
+      dia,
+      mes,
+      price,
+      peca_id,
+
+    });
+    window.location.reload();
+
   }
 
   //Pode remover os value (para não aparecer no html)
   return (
     <div className="show-create-container">
+      <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
-        <label htmlFor="pecaNome" className="pecaNome">
-          NOME DA PEÇA
-        </label>
-        <input
-          required
-          type="text"
-          placeholder="Nome da Peça"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-        <label htmlFor="Sinopse" className="Sinopse">
-          SINOPSE
-        </label>
-        <textarea
-          required
-          type="text"
-          placeholder="Sinopse"
-          value={sinopse}
-          onChange={e => setSinopse(e.target.value)}
-        />
-        <label htmlFor="diretor" className="diretor">
-          DIRETOR
-        </label>
-        <input
-          required
-          type="text"
-          placeholder="Diretor"
-          value={director}
-          onChange={e => setDirector(e.target.value)}
-        />
-        <label htmlFor="Duracao" className="Duracao">
-          DURAÇÃO <span>(HH:mm)</span>
-        </label>
-        <input
-          required
-          type="time"
-          placeholder="Duracao"
-          value={duration}
-          onChange={e => setDuration(e.target.value)}
-        />
-
-        <label htmlFor="Classificação" className="Classificação">
-          CLASSIFICAÇÃO
+        <label htmlFor="peças" className="peças">
+          PEÇA
         </label>
         <select
           required
           name="classificacao-select"
           defaultValue="Livre"
-          value={classificacao}
-          onChange={e => setClassificacao(e.target.value)}
+          value={peca_id}
+          onChange={e => setPecaID(e.target.value)}
         >
-          <option defaultValue="Livre" value="Livre">
-            Livre
-          </option>
-          <option value="Adulto">Adulto</option>
+          {pecas.map(peca => (
+            <option value={peca.id} onChange={e => setPecaID(e.target.value)}>
+              {peca.name}
+            </option>
+          ))}
+
         </select>
-        <label htmlFor="Genero" className="Genero">
-          GENERO
-        </label>
+
+
+
+        <label htmlFor="hora" className="HORA">HORA</label>
         <input
+          type="number"
+          placeholder="Hora"
+          minLength="1"
+          maxLength="2"
+          min="00"
+          max="23"
+          value={hora}
           required
-          type="text"
-          placeholder="Genero"
-          value={genero}
-          onChange={e => setGenero(e.target.value)}
+          onChange={e => setHora(e.target.value)}
         />
+        <label htmlFor="dia" className="DIA">DIA</label>
+        <input
+          type="number"
+          placeholder="Dia"
+          minLength="0"
+          maxLength="2"
+          min="1"
+          max="31"
+          value={dia}
+          required
+          onChange={e => setDia(e.target.value)}
+        />
+        <label htmlFor="mes" className="MES">MES</label>
+        <input
+          type="text"
+          placeholder="Mes"
+          value={mes}
+          required
+          onChange={e => setMes(e.target.value)}
+        />
+
         <label htmlFor="preco" className="preco">
           PREÇO
         </label>
@@ -114,14 +114,9 @@ export default function EditEspec({ match, history }) {
           placeholder="Valor"
           value={price}
           onChange={e => setPrice(e.target.value)}
-        />{" "}
-        <label id="imgpeca">IMAGEM</label>
-        <input
-          required
-          type="file"
-          onChange={e => setImage(e.target.files[0])}
         />
-        <button type="submit">Cadastrar</button>
+
+        <button type="submit">Editar</button>
       </form>
     </div>
   );

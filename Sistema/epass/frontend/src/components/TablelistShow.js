@@ -100,7 +100,7 @@ export default function TableExampleColors({ history, match }) {
           ))}
         </MDBTableBody>
       </MDBTable>
-      <Footer />
+
     </div>
   );
 }
