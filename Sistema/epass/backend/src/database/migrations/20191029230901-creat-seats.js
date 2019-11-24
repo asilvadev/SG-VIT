@@ -9,6 +9,13 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
+      espetaculo_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+         references: { model: 'espetaculos', key: 'id' },
+        onUpdate: 'CASCADE',
+         onDelete: 'CASCADE',
+      },
       fila: {
         type: Sequelize.ENUM,
         values: ["A", "B", "C", "D", "E"],

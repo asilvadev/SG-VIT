@@ -1,12 +1,12 @@
 import React from "react";
 
-// import "./ShowCreat.css";
+// import "./EditEspec.css";
 
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
 
-export default function ShowCreat({ history }) {
+export default function EditEspec({ match, history }) {
   const [name, setName] = React.useState("");
   const [sinopse, setSinopse] = React.useState("");
   const [director, setDirector] = React.useState("");
@@ -29,8 +29,9 @@ export default function ShowCreat({ history }) {
     data.append("price", price);
     data.append("image", image);
 
+    console.log(match);
     console.log(data);
-    await api.post("/show/create", data);
+    await api.put(`/show/update/${match.params.id}`, data);
     history.push('/admin/dashboard');
   }
 

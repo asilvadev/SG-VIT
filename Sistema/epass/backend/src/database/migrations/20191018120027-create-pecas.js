@@ -10,6 +10,13 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      // espetaculo_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //    references: { model: 'espetaculos', key: 'id' },
+      //   onUpdate: 'CASCADE',
+      //    onDelete: 'CASCADE',
+      // },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -40,10 +47,7 @@ module.exports = {
          type: Sequelize.STRING,
         allowNull: false,
        },
-      price: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
+
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

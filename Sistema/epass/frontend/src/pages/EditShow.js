@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./ShowCreat.css";
+// import "./EditShow.css";
 
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
 
-export default function ShowCreat({ history }) {
+export default function EditShow({ match, history }) {
   const [name, setName] = React.useState("");
   const [sinopse, setSinopse] = React.useState("");
   const [director, setDirector] = React.useState("");
@@ -29,16 +29,15 @@ export default function ShowCreat({ history }) {
     data.append("price", price);
     data.append("image", image);
 
+    console.log(match);
     console.log(data);
-    await api.post("/show/create", data);
-     window.location.reload(false);
-
+    await api.put(`/show/update/${match.params.id}`, data);
+    history.push('/admin/dashboard');
   }
 
   //Pode remover os value (para não aparecer no html)
   return (
     <div className="show-create-container">
-      <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <label htmlFor="pecaNome" className="pecaNome">
           NOME DA PEÇA

@@ -12,6 +12,8 @@ class Seat extends Model {
     }
 
     static associate(models){
+      this.belongsTo(models.Espetaculo, { foreignKey: 'espetaculo_id', as: 'espetaculos'});
+      // this.hasMany(models.Espetaculo, { foreignKey: 'seat_id', as: 'seats'});
 
     }
 }

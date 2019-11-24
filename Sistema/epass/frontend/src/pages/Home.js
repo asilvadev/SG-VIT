@@ -18,7 +18,7 @@ export default function Home({ history }) {
 
   useEffect(() => {
     async function loadPecas() {
-      const response = await api.get("/show/all");
+      const response = await api.get("/espetaculo/all");
 
       setPecas(response.data);
       console.log(response.data);
@@ -34,17 +34,17 @@ export default function Home({ history }) {
       <Slider className="slider-wrapper" autoPlay duration={6000}>
         {pecas.map(peca => (
           <div
-            key={peca.id}
+            key={peca.pecas.id}
             className="slider-content"
             style={{
-              background: `url('http://localhost:3333/files/${peca.image}') no-repeat center center`
+              background: `url('http://localhost:3333/files/${peca.pecas.image}') no-repeat center center`
             }}
           >
             <div className="inner">
-              <h1>{peca.name}</h1>
-              <p>{peca.sinopse}</p>
-              <Link to={`/show/${peca.id}`}>
-                <button type="submit" id="detail" value={peca.id}>
+              <h1>{peca.pecas.name}</h1>
+              <p>{peca.pecas.sinopse}</p>
+              <Link to={`/show/${pecas.id}`}>
+                <button type="submit" id="detail" value={peca.pecas.id}>
                   Detalhes
                 </button>
               </Link>
@@ -70,26 +70,26 @@ export default function Home({ history }) {
                 <span class="container-img">
                   <img
                     class="lozad"
-                    src={`http://localhost:3333/files/${peca.image}`}
+                    src={`http://localhost:3333/files/${peca.pecas.image}`}
                     alt=""
                   ></img>
                 </span>
                 <div class="card-info">
                   <div class="info-evento">
                     <div class="minicard-data-info">
-                      <span class="data-semana">Sex</span>
-                      <span class="data-layer">15</span>
-                      <span class="data-mes">NOV</span>
+                      <span class="data-semana">DIA</span>
+        <span class="data-layer">{peca.dia}</span>
+        <span class="data-mes">{peca.mes}</span>
                     </div>
                     <div class="infoCardDesk">
-                      <span class="evento-cidade">Porto Alegre/RS</span>
+                      <span class="evento-cidade">Natal/RN</span>
                       <span
                         class="evento-nome"
                         title="Luccas Neto com Os Aventureiros"
                       >
-                        {peca.name}
+                        {peca.pecas.name}
                       </span>
-                      <span class="local-nome">Ginásio Gigantinho</span>
+                      <span class="local-nome">Teatro ePass-Hall</span>
                       <div className="buttons">
                         <Link to={`/show/${peca.id}`}>
                           <button type="submit" id="visualizar" value={peca.id}>

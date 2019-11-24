@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button } from "reactstrap";
+import {Link} from 'react-router-dom';
+
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
+
 
 import Footer from "./Footer";
 
@@ -11,12 +13,16 @@ import "mdbreact/dist/css/mdb.css";
 
 import api from "../services/api";
 
+
 export default function TableExampleColors({ history, match }) {
   const [pecas, setPecas] = React.useState([]);
 
+
+
+
   useEffect(() => {
     async function loadPecas() {
-      const response = await api.get("/show/all");
+      const response = await api.get("/espetaculo/all");
 
       setPecas(response.data);
       console.log(response.data);
@@ -24,13 +30,18 @@ export default function TableExampleColors({ history, match }) {
     loadPecas();
   }, []);
   async function handlesDelete(e) {
-    await api.post(`/show/delete/${e.target.value}`);
+    await api.post(`/espetaculo/delete/${e.target.value}`);
+
     window.location.reload();
-    e.preventDefault();
   }
-  async function handlesEdit(e) {
-    console.log(match);
-  }
+
+
+
+
+
+
+
+
   const columns = [
     {
       label: "#"
@@ -39,11 +50,9 @@ export default function TableExampleColors({ history, match }) {
       label: "Nome"
     },
     {
-      label: "Sinopse"
+      label: "Informações"
     },
-    {
-      label: "Diretor"
-    },
+
     {
       label: "Opções"
     }
@@ -57,18 +66,22 @@ export default function TableExampleColors({ history, match }) {
           {pecas.map(peca => (
             <tr>
               <td>{peca.id}</td>
-              <td>{peca.name}</td>
-              <td>{peca.sinopse}</td>
-              <td>{peca.director}</td>
+              <td>{peca.pecas.name}</td>
+              <td>Dia {peca.dia}/{peca.mes} às {peca.hora}:00 hr</td>
               <td>
+              <Link to={`/espetaculo/update/${peca.id}`}>
+
                 <MDBBtn
                   color="yellow"
                   size="sm"
-                  onClick={handlesEdit}
+
                   value={peca.id}
+
                 >
                   Editar
                 </MDBBtn>
+                </Link>
+
 
                 <MDBBtn
                   color="red"
@@ -78,6 +91,7 @@ export default function TableExampleColors({ history, match }) {
                 >
                   Excluir
                 </MDBBtn>
+
               </td>
             </tr>
           ))}

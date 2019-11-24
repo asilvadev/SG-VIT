@@ -20,7 +20,7 @@ module.exports = {
       director,
       duration,
       classificacao,
-      price,
+
       genero
     } = req.body;
     const { filename: image } = req.file;
@@ -39,12 +39,69 @@ module.exports = {
       director,
       duration,
       classificacao,
-      price,
+
       genero,
       image
     });
 
     return res.json(peca);
+  },
+  async update(req, res) {
+    console.log(req.body);
+    console.log(req.file);
+
+    const {
+      name,
+      sinopse,
+      director,
+      duration,
+      classificacao,
+
+      genero
+    } = req.body;
+
+    const { filename: image } = req.file;
+    const [image_name] = image.split(".");
+    const file_name = `${image_name}.jpg`;
+    await sharp(req.file.path)
+      .resize(500)
+      .jpeg({ quality: 70 })
+      .toFile(path.resolve(req.file.destination, "resized", file_name));
+
+    fs.unlinkSync(req.file.path);
+    const { id } = req.params;
+    await Peca.update({ name,
+      sinopse,
+      director,
+      duration,
+      classificacao,
+
+      genero,
+      image },
+      { where: { id } }
+    )
+      .success(
+        res.status(200).json({ success: "Peca atualizada" })
+      )
+      .catch(
+        res.status(500).json({ error: "Peca não atualizada" })
+      )
+
+    // if (update) {
+
+    //   const update = await Peca.update({
+    //     name,
+    //     sinopse,
+    //     director,
+    //     duration,
+    //     classificacao,
+    //
+    //     genero,
+    //     image
+    //   });
+      return res.json(update);
+
+
   },
 
   async detail(req, res) {
