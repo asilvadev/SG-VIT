@@ -1,6 +1,7 @@
 const Peca = require('../models/Peca');
 const Ingresso = require('../models/Ingresso');
 const User = require('../models/User');
+const Seat = require('../models/Seat');
 
 module.exports = {
 
@@ -8,50 +9,69 @@ module.exports = {
     const { user_id } = req.params;
 
 
-    const user = await User.findByPk(user_id, {
-      include: { association: 'ingressos' }
+    const ticket = await Ingresso.findAll({
+      where : {
+        user_id
+      }
+      // include: { association: 'ingressos' }
     });
+    return res.json(ticket);
 
 
-    if (!user) {
-      return res.status(400).json({ error: 'User not found!' });
+    if (!ticket) {
+      return res.status(400).json({ error: 'User não tem ingresso!' });
     }
 
-    return res.json(user);
+    return res.json(ticket);
   },
 
   async store(req, res) {
-    const { user_id, peca_id } = req.params;
-    const { tipo, price } = req.body;
-    const meia = price/2;
-    const user = await User.findByPk(user_id);
-    if (!user) {
-      return res.status(400).json({ error: 'User not found!' });
-    }
+    const { user_id, espetaculo_id, seat_id } = req.body;
 
-    const peca = await User.findByPk(peca_id);
-    if (!peca) {
-      return res.status(400).json({ error: 'Show not found!' });
-    }
+    const ingresso = await Ingresso.create({
+      user_id, espetaculo_id, seat_id
+    });
 
-    if (tipo==='Meia'){
-      const ingresso = await Ingresso.create({
-        tipo,
-        meia,
-        user_id,
-        peca_id,
-      })} else {
-        const ingresso = await Ingresso.create({
-        tipo,
-        price,
-        user_id,
-        peca_id,
-      })}
+    await Seat.update({is_ocupada : true}, {
+      where : { id : seat_id }
+    });
+
+
 
 
 
     return res.json(ingresso);
+  },
+
+  async destroy(req, res){
+    const { id } = req.params;
+    const data = await Ingresso.findByPk(id);
+
+   console.log(data.seat_id);
+   await Seat.update({is_ocupada : false}, {
+    where : { id : data.seat_id }
+  });
+
+  await Ingresso.destroy({
+    where : {
+      id
+    }
+  }).then(status =>
+    res.status(201).json({
+      error: false,
+      message: "Peca has been deleted"
+    })
+  )
+  .catch(error =>
+    res.json({
+      error: true,
+      error: error
+    })
+  );
+
   }
+
+
 
 
 }

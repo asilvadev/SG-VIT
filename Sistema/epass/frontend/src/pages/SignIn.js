@@ -35,7 +35,7 @@ export default function SignIn({ history }) {
             localStorage.setItem("id", data.id);
             localStorage.setItem("expiresIn", data.expira);
             localStorage.setItem("currentDate", new Date().getTime());
-            history.push("/dashboard");
+            history.goBack();
           }
         }
       });

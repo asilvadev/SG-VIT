@@ -1,13 +1,23 @@
 const Seat = require("../models/Seat");
+const User = require("../models/User");
 const Espetaculo = require("../models/Espetaculo");
 const bcrypt = require("bcryptjs");
 
 
 module.exports = {
   async index(req, res) {
+    const { id } = req.params;
+    const seats = await Seat.findAll({
+      where : {
+        espetaculo_id : id,
+
+      },
+      order : ['id']
+    });
+
+    return res.json(seats);
 
   },
-
 
     async find(req, res){
 

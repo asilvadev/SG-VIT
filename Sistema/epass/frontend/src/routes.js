@@ -12,6 +12,7 @@ import ShowCreate from "./pages/ShowCreate";
 import EditShow from './pages/EditShow';
 import EspecCreate from "./pages/EspecCreate";
 import EditEspec from './pages/EditEspec';
+import Buy from './pages/Buy';
 
 import PrivateRoute from "./pages/PivateRoute";
 import PrivateRouteAdmin from "./pages/PivateRouteAdmin";
@@ -32,6 +33,8 @@ export default function Routes() {
 
         <PrivateRouteAdmin path="/espetaculo/create" exact component={EspecCreate} />
         <PrivateRouteAdmin path="/espetaculo/update/:id" exact component={EditEspec} />
+
+        <PrivateRoute path="/espetaculo/buy/:id" exact component={Buy} />
 
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />

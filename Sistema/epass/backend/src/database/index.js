@@ -12,15 +12,15 @@ const connection = new Squelize(dbConfig);
 
 User.init(connection);
 Peca.init(connection);
-Ingresso.init(connection);
-Seat.init(connection);
 Espetaculo.init(connection);
+Seat.init(connection);
+Ingresso.init(connection);
 
 
 User.associate(connection.models);
 Peca.associate(connection.models);
-Ingresso.associate(connection.models);
-Seat.associate(connection.models);
 Espetaculo.associate(connection.models);
+Seat.associate(connection.models);
+Ingresso.associate(connection.models);
 
 module.exports = connection;

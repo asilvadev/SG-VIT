@@ -118,7 +118,7 @@ module.exports = {
 
   async destroy(req, res) {
     const { id } = req.params;
-    Peca.destroy({
+    await Peca.destroy({
       where: {
         id
       }

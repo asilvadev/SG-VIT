@@ -21,4 +21,4 @@ server.use(cosr());
 server.use(express.json());
 server.use(routes);
 
-socket.listen(3333);
+socket.listen(8484);

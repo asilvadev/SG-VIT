@@ -3,15 +3,18 @@ const { Model, DataTypes } = require('sequelize');
 class Ingresso extends Model {
     static init(sequelize){
         super.init({
-            tipo: DataTypes.ENUM('Inteira', 'Meia'),
-            is_ocupada: DataTypes.BOOLEAN,
+
         },{
             sequelize
         })
     }
 
     static associate(models){
-        // this.belongsTo(models.User, { foreignKey : 'user_id', as : 'user_owner' });
+        this.belongsTo(models.User, { foreignKey : 'user_id', as : 'users' });
+        this.belongsTo(models.Espetaculo, { foreignKey : 'espetaculo_id', as : 'espetaculos' });
+        this.belongsTo(models.Seat, { foreignKey : 'seat_id', as : 'seats' });
+
+
 
 
     }

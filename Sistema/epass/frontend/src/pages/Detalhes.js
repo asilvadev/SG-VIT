@@ -46,7 +46,7 @@ export default function Detalhes({ match, history }) {
       <div className="conteudo">
         <div className="servicos">
           <div className="btn-comprar">
-            <Link to={`/show/"valor"`}>
+            <Link to={`/espetaculo/buy/${espetaculo.id}`}>
               <button type="submit" id="comprar" value="valor">
                 COMPRAR >
               </button>

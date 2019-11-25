@@ -7,7 +7,7 @@ const Seat = require("../models/Seat");
 module.exports = {
   async index(req, res) {
     const response = await Espetaculo.findAll({
-      include: { association: 'pecas' }
+
     });
     if (!response) {
       return res.status(400).json({ error: 'Espetaculo not found!' });
@@ -20,7 +20,7 @@ module.exports = {
     const { id } = req.params;
 
     const peca = await Espetaculo.findByPk(id, {
-      include: { association: 'pecas'}
+
     });
 
     if (!peca) {

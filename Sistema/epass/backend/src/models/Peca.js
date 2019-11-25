@@ -21,7 +21,7 @@ class Peca extends Model {
 
     static associate(models){
       this.hasMany(models.Espetaculo, { foreignKey: 'peca_id', as: 'pecas'});
-      // this.belongsTo(models.Espetaculo, {foreignKey: 'espetaculo_id', as: 'espetaculos'});
+
     }
 }
 

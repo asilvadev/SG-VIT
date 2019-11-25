@@ -21,7 +21,7 @@ routes.get("/user/:user_id", UserController.find);
 routes.post("/user/create", UserController.store);
 
 routes.post("/user/login", LoginController.login);
-routes.post("/user/create", UserController.store);
+// routes.post("/user/create", UserController.store);
 
 routes.get("/show/all", PecaController.index);
 routes.get("/show/:id", PecaController.detail);
@@ -40,8 +40,9 @@ routes.get("/seat/all/:id", SeatController.index);
 routes.post("/seat/create/:id", SeatController.reserva);
 
 
-// routes.get('/dashboard/:user_id/ingressos', IngressoController.index);
-// routes.post('/dashboard/:user_id/:peca_id/buy', IngressoController.store);
+routes.get('/dashboard/:user_id/ingressos', IngressoController.index);
+routes.post('/dashboard/buy', IngressoController.store);
+routes.post('/dashboard/cancel/:id', IngressoController.destroy);
 
 /*
 routes.get('/dashboard', DashboardController.index); // Listas peças disponiveis no teatro [Menu lateral → Dashboard → Ingressos]
