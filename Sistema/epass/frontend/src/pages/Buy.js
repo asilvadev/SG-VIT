@@ -1,17 +1,15 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 
 import "./Buy.css";
-import Header from '../components/Header';
 
 import "./slider-animations.css";
 
 
 
 import api from "../services/api";
-import { Input } from "@material-ui/core";
 
 
 export default function Buy({ match, history }) {
@@ -21,12 +19,10 @@ export default function Buy({ match, history }) {
   const [local, setLocal] = useState([]);
 
   const expireTime = localStorage.getItem("expiresIn");
-  const curretTime = localStorage.getItem("currentDate");
 
 
   useEffect(() => {
     async function loadInfos() {
-      console.log(match.params.id);
       const espet = await api.get(`/espetaculo/${match.params.id}`);
       setEspetaculo(espet.data);
       const response = await api.get(`/show/${espet.data.peca_id}`);
@@ -54,9 +50,6 @@ export default function Buy({ match, history }) {
     times();
   });
 async function handleRegister({ history, match }){
-  console.log("Local ID: " + local);
-  console.log("User ID: " + localStorage.getItem("id"));
-  console.log("Espetaculo ID: " + espetaculo.id);
 
   await api.post('/dashboard/buy',{
     user_id : localStorage.getItem("id"),
@@ -78,7 +71,6 @@ async function handleRegister({ history, match }){
     };
     function CheckD(props) {
 
-      const id = props.id_value;
 
       return (<input type="radio" disabled="disabled" />)
     };
@@ -137,7 +129,6 @@ async function handleRegister({ history, match }){
 
   return (
     <div className="externo">
-      {/* <Header /> */}
       <div className="banner">
         <div className="item">
           <picture>

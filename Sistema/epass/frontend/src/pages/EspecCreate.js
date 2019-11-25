@@ -23,7 +23,6 @@ export default function EspecCreate({ history, match }) {
       const response = await api.get("/show/all");
 
       setPecas(response.data);
-      console.log(response.data);
     }
     loadPecas();
   }, []);

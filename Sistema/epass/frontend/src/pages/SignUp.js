@@ -4,7 +4,6 @@ import "./SignUp.css";
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
-import Header from '../components/Header';
 
 export default function SignUp({ history }) {
   const [name, setNome] = React.useState("");
@@ -15,20 +14,17 @@ export default function SignUp({ history }) {
   async function handlesSubmit(e) {
     e.preventDefault();
 
-    const response = api.post("/user/create", {
+    await api.post("/user/create", {
       name,
       email,
       senha,
       cpf
     });
-    console.log(response);
     history.push("/dashboard");
   }
 
-  //Pode remover os value (para não aparecer no html)
   return (
     <div className="externo">
-      {/* <Header /> */}
       <div className="signup-container">
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>

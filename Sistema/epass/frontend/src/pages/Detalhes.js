@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "react-animated-slider/build/horizontal.css";
-import Header from '../components/Header';
 
 import "./Detalhes.css";
 import "./slider-animations.css";
@@ -18,14 +17,11 @@ export default function Detalhes({ match, history }) {
 
   useEffect(() => {
     async function loadInfos() {
-      console.log(match.params.id);
       const espet = await api.get(`/espetaculo/${match.params.id}`);
       setEspetaculo(espet.data);
       const response = await api.get(`/show/${espet.data.peca_id}`);
       setPeca(response.data);
 
-      console.log(espet.data);
-      console.log(response.data);
     }
     loadInfos();
   }, []);
@@ -34,7 +30,6 @@ function handleGoBack({history}){
 }
   return (
     <div className="externo">
-              {/* <Header /> */}
       <div className="banner">
         <div className="item">
           <picture>

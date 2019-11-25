@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './NotFound.css';
 
-// import api from '../services/api';
 
 import notfound from '../assets/404.svg';
 

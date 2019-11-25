@@ -26,7 +26,7 @@ export default function IndicatorDots (props) {
   }
 
   if (props.total < 2) {
-    // Hide dots when there is only one dot.
+
     return <div style={wrapperStyle} />
   } else {
     return (

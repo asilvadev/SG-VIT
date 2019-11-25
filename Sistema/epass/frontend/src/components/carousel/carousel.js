@@ -360,14 +360,7 @@ class Carousel extends React.Component {
     this.setState({ current: newCurrentId })
   }
 
-  // debugFrames () {
-  //   console.log('>>> DEBUG-FRAMES: current', this.state.current)
-  //   const len = this.state.frames.length
-  //   for (let i = 0; i < len; ++i) {
-  //     const ref = this.refs['f' + i]
-  //     console.info(ref.innerText.trim(), ref.style.transform)
-  //   }
-  // }
+
 
   render () {
     const { frames, current } = this.state

@@ -1,6 +1,5 @@
 import React from "react";
 
-// import "./EditShow.css";
 
 import api from "../services/api";
 
@@ -29,8 +28,7 @@ export default function EditShow({ match, history }) {
 
     data.append("image", image);
 
-    console.log(match);
-    console.log(data);
+
     await api.put(`/show/update/${match.params.id}`, data);
     window.location.reload();
   }

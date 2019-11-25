@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {Link} from 'react-router-dom';
 
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 
 
-import Footer from "./Footer";
 
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
-// import { Table } from "semantic-ui-react";
+
 
 import api from "../services/api";
 
@@ -25,7 +24,6 @@ export default function TableExampleColors({ history, match }) {
       const response = await api.get("/espetaculo/all");
 
       setPecas(response.data);
-      console.log(response.data);
     }
     loadPecas();
   }, []);

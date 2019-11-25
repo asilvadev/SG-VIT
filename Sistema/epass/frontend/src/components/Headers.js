@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, History } from "react-router-dom";
 
 import logo from "../assets/epass.png";
 import "./Headers.css";
@@ -36,7 +35,6 @@ export default function Headers({history}) {
   }
 function HeaderUser(props){
   function handlesSubmit(e){
-    console.log("entou no submit")
     e.preventDefault();
       localStorage.removeItem("app-token");
       localStorage.removeItem("admin");
@@ -79,7 +77,6 @@ function HeaderUser(props){
 }
 function HeaderAdmmin(props){
   function handlesSubmit(e){
-    console.log("entou no submit")
     e.preventDefault();
       localStorage.removeItem("app-token");
       localStorage.removeItem("admin");
@@ -126,16 +123,11 @@ function CondHeader({history}){
   const isLogged = !!localStorage.getItem("app-token");
   const isAdmin = !!localStorage.getItem("admin");
 
-console.log("LOGADO: " + isLogged)
-console.log("Admin: " +isAdmin)
   if (isLogged && isAdmin){
-    console.log("PRIMEIRO IF")
     return (<HeaderAdmmin isLogged={isLogged} isAdmin={isAdmin}/>)
   }else if(isLogged && !isAdmin){
-    console.log("SEGUNDO IF")
     return (<HeaderUser isLogged={isLogged} isAdmin={isAdmin}/>)
   }else{
-    console.log("ELSE")
     return (<HeaderDefault isLogged={isLogged} isAdmin={isAdmin}/>)
 
   }

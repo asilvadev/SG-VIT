@@ -29,7 +29,6 @@ export default function ShowCreat({ history }) {
 
     data.append("image", image);
 
-    console.log(data);
     await api.post("/show/create", data);
      window.location.reload();
 
