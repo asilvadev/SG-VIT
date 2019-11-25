@@ -45,6 +45,10 @@ header section a {
 
 }
 
+.externo {
+  display: initial;
+}
+
 .slider-wrapper .inner button#detail:hover {
 
 
@@ -253,6 +257,7 @@ header section a {
 .fdf {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 67px;
 
 }
 

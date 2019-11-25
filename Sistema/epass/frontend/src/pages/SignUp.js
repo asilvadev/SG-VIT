@@ -14,19 +14,18 @@ export default function SignUp({ history }) {
   async function handlesSubmit(e) {
     e.preventDefault();
 
-    const response = api.post("/user/create", {
+    await api.post("/user/create", {
       name,
       email,
       senha,
       cpf
     });
-    console.log(response);
     history.push("/dashboard");
   }
 
-  //Pode remover os value (para não aparecer no html)
   return (
-    <div className="signup-container">
+    <div className="externo">
+      <div className="signup-container">
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <input
@@ -65,5 +64,10 @@ export default function SignUp({ history }) {
         <button type="submit">Cadastrar</button>
       </form>
     </div>
+
+    </div>
+
+
+
   );
 }

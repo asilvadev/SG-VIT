@@ -5,44 +5,60 @@ import api from "../services/api";
 
 import logo from "../assets/epass.png";
 
-export default function SignIn(history) {
+export default function SignIn({ history }) {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
 
   function handlesSubmit(e) {
     e.preventDefault();
 
-    const response = api.post("/user/login", {
-      email,
-      senha
-    });
+    api
+      .post("/user/login", {
+        email,
+        senha
+      })
+      .then(response => {
+        const { data } = response;
+        if (data.success) {
 
-    console.log(response);
-    if (response.success) {
-      console.log(response.id);
-    }
-
-    // history.push(`/dashboard/${id}`);
+          if (data.admin) {
+            localStorage.setItem("app-token", data.token);
+            localStorage.setItem("admin", data.admin);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("expiresIn", data.expira);
+            localStorage.setItem("currentDate", new Date().getTime());
+            history.push("/admin/dashboard");
+          } else {
+            localStorage.setItem("app-token", data.token);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("expiresIn", data.expira);
+            localStorage.setItem("currentDate", new Date().getTime());
+            history.goBack();
+          }
+        }
+      });
   }
 
   return (
-    <div className="signin-container">
-      <img src={logo} alt="ePass" />
-      <form onSubmit={handlesSubmit}>
-        <input
-          type="text"
-          placeholder="E-mail"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={senha}
-          onChange={e => setSenha(e.target.value)}
-        />
-        <button type="submit">Entrar</button>
-      </form>
+    <div className="externo">
+      <div className="signin-container">
+        <img src={logo} alt="ePass" />
+        <form onSubmit={handlesSubmit}>
+          <input
+            type="text"
+            placeholder="E-mail"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            onChange={e => setSenha(e.target.value)}
+          />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
     </div>
   );
 }

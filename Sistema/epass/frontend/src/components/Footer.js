@@ -4,11 +4,11 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer id="main-footer">
-      <div class="copyright bottom-space">
-        <div class="col-md-12">
+    <footer className="main-footer">
+      <div className="copyright bottom-space">
+        <div className="col-md-12">
           <span>© 2019</span>
-          <span class="local-text">
+          <span className="local-text">
             Epass - Sistema de Gerenciamento de Venda de Ingressos para Teatro
             (SGV-IT) | Natal-RN | @asilvadev
           </span>

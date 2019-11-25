@@ -11,36 +11,29 @@ module.exports = {
           autoIncrement: true,
           allowNull: false,
         },
-        // user_id: {
-        //   type: Sequelize.INTEGER,
-        //   allowNull: false,
-        //   references: { model: 'users', key: 'id' },
-        //   onUpdate: 'CASCADE',
-        //   onDelete: 'CASCADE',
-        // },
-        // peca_id: {
-        //   type: Sequelize.INTEGER,
-        //   allowNull: false,
-        //   references: { model: 'pecas', key: 'id' },
-        //   onUpdate: 'CASCADE',
-        //   onDelete: 'CASCADE',
-        // },
-        // user_id: {
-        //   type: Sequelize.INTEGER,
-        //   allowNull: false,
-        //   references: { model: 'users', key: 'id' },
-        //   onUpdate: 'CASCADE',
-        //   onDelete: 'CASCADE',
-        // },
-        tipo: {
-          type: Sequelize.ENUM,
-          values: ['Inteira', 'Meia'],
-          allowNull: false,
-        },
-        price: {
+        user_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
+          references: { model: 'users', key: 'id' },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
         },
+        espetaculo_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'espetaculos', key: 'id' },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+        seat_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'seats', key: 'id' },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+
+
         created_at: {
           type: Sequelize.DATE,
           allowNull: false,

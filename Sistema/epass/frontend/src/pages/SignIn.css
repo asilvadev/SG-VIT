@@ -1,7 +1,9 @@
 img {
   height: 90px;
 }
-
+.externo{
+  height: 77%;
+}
 .signin-container {
   height: 100%;
   display: flex;

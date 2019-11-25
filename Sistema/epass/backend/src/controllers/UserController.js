@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
+
 module.exports = {
   async index(req, res) {
     const response = await User.findAll();
@@ -22,73 +23,7 @@ module.exports = {
     return res.json(user);
     },
 
-  async login(req, res) {
-    const { email, senha } = req.body;
-    if (!email) {
-      return res.send({
-        success: false,
-        message: "Error: Email cannot be blank."
-      });
-    } else if (!senha) {
-      return res.send({
-        success: false,
-        message: "Error: Senha cannot be blank."
-      });
-    }
-    const bd_user = await User.findOne({
-      where: {
-        email: email
-      }
-    });
-    if (!bd_user) {
-      return res.send({
-        success: false,
-        message: "Error: Email não encontrado."
-      });
-    }
 
-
-    const compareHash = await bcrypt.compare(senha, bd_user.senha);
-
-
-    if (compareHash) {
-      return res.json(bd_user);
-    } else {
-      return res.send({
-        success: false,
-        message: "Error: Senha invalida."
-      });
-    }
-
-
-    // const pw = bcrypt.compare(senha, bd_user.senha);
-    // if (!pw) {
-    // } else {
-    //   return res.json(bd_user);
-    // }
-
-    // const pw = bcrypt.compare(senha, senha);
-    // if (!pw) {
-    //   return res.send({
-    //     success: false,
-    //     message: "Error: PW não corresponde"
-    //   });
-    // }
-
-    // const bd_email = await User.findOne({
-    //   where: {
-    //     email: email
-    //   }
-    // });
-    // if (!bd_email) {
-    //   return res.send({
-    //     success: false,
-    //     message: "Error: e-mail não encontrado"
-    //   });
-    // }
-
-    // return res.json(users);
-  },
 
   async store(req, res) {
     const { name, email, cpf, senha, is_func, is_admin } = req.body;

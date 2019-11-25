@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import "./App.css";
-import Header from "./components/Header";
+
+import CondHeader from './components/Headers'
+
 import Routes from "./routes";
-import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
+        <CondHeader />
       <Routes />
-      <Footer />
     </BrowserRouter>
   );
 }

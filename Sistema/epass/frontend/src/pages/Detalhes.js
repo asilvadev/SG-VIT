@@ -12,28 +12,29 @@ import placeit from "../assets/place.svg";
 import api from "../services/api";
 
 export default function Detalhes({ match, history }) {
-  const [peca, setPeca] = useState({
-    image: {}
-  });
+  const [espetaculo, setEspetaculo] = useState([]);
+  const [peca, setPeca] = useState([]);
 
   useEffect(() => {
-    async function loadPeca() {
-      console.log(match);
-      const response = await api.get(`/show/${match.params.id}`);
-      console.log(response.data);
-
+    async function loadInfos() {
+      const espet = await api.get(`/espetaculo/${match.params.id}`);
+      setEspetaculo(espet.data);
+      const response = await api.get(`/show/${espet.data.peca_id}`);
       setPeca(response.data);
-    }
-    loadPeca();
-  }, []);
 
+    }
+    loadInfos();
+  }, []);
+function handleGoBack({history}){
+  window.history.back()
+}
   return (
     <div className="externo">
       <div className="banner">
         <div className="item">
           <picture>
             <img
-              src="https://imagens.uhuu.com/imgs/16463-banner-uhuu-2000x580-pink-floyd.jpg"
+              src={`http://localhost:3333/files/${peca.image}`}
               alt=""
             />
           </picture>
@@ -42,21 +43,21 @@ export default function Detalhes({ match, history }) {
       <div className="conteudo">
         <div className="servicos">
           <div className="btn-comprar">
-            <Link to={`/show/${peca.id}`}>
-              <button type="submit" id="comprar" value={peca.id}>
+            <Link to={`/espetaculo/buy/${espetaculo.id}`}>
+              <button type="submit" id="comprar" value="valor">
                 COMPRAR >
               </button>
             </Link>
           </div>
         </div>
         <div className="row">
-          <Link to={`/`}>
-            <a className="pull-left breadcrum">← Voltar para Home</a>
+          <Link onClick={handleGoBack}>
+            <a className="pull-left breadcrum" >← Voltar</a>
           </Link>
         </div>
         <div className="row">
           <div className="name-event">
-            <h2 className="principal">Pink Floyd - Experience in Concert</h2>
+            <h2 className="principal">{peca.name}</h2>
             <hr />
           </div>
           <div className="event-data">
@@ -64,15 +65,15 @@ export default function Detalhes({ match, history }) {
               <div className="info-event">
                 <div className="col">
                   <div className="minicard-data">
-                    <span className="data-semana">Sáb</span>
-                    <span className="data-layer">16</span>
-                    <span className="data-mes">Nov</span>
+                    <span className="data-semana">DIA</span>
+                    <span className="data-layer">{espetaculo.dia}</span>
+                    <span className="data-mes">{espetaculo.mes}</span>
                   </div>
                 </div>
                 <div className="col">
                   <div className="infoCard horario">
                     <img src={time} alt="" className="time" />
-                    <div className="texto bold">22:00</div>
+                    <div className="texto bold">{espetaculo.hora}:00</div>
                     <div className="bottom-label">Horario</div>
                   </div>
                 </div>
@@ -80,7 +81,7 @@ export default function Detalhes({ match, history }) {
                   <div className="infoCard local">
                     <img src={placeit} alt="" className="placeit" />
                     <div className="teatro">
-                      <div className="texto-bold">Teatro VillageMall</div>
+                      <div className="texto-bold">Teatro ePass-Hall</div>
                       <div className="texto-pequeno">Natal-RN</div>
                     </div>
                     <div className="bottom-label">Local</div>
@@ -91,33 +92,33 @@ export default function Detalhes({ match, history }) {
           </div>
           <div className="descricao-evento">
             <p>
-              Pink Floyd Experience In Concert é uma imersão musical e visual na
-              histórias e mentes de David Gilmour e Roger Waters, que juntos,
-              foram responsáveis pela história musical de uma das maiores bandas
-              de todos os tempos! Além de efeitos visuais, projeções em Mapping
-              3D e um palco temático, o show conta com orquestra ao vivo regida
-              por um maestro que agregam ainda mais qualidade e elevam o nível
-              musical do espetáculo. O público pode esperar uma verdadeira
-              viagem no tempo com as fases e músicas mais importantes desta
-              grande banda, num espetáculo que promete emocionar a todos.
+            {peca.sinopse}
             </p>
             <p>
               <strong>
                 ________________________________________________________________________________
               </strong>
+              </p>
+            <p>
+              <strong>Diretor: {peca.director}</strong><br></br>
+            <strong>Genero: {peca.genero}</strong>
             </p>
             <p>
-              <strong>Duração: 80 minutos</strong>
+
+
+              <strong>Preço: R$ {espetaculo.price},00</strong><br></br>
+              <strong>Duração: {peca.duration} hr</strong>
             </p>
             <p>
-              <strong>Classificação Etária:</strong> Livre. Menores de 14 anos,
-              somente poderão entrar acompanhados dos pais ou responsáveis.
-              Crianças até 24 meses de idade que ficarem no colo dos pais, não
-              pagam.
+              <strong>Classificação: {peca.classificacao}</strong>.
             </p>
           </div>
         </div>
       </div>
+
+
+
+
     </div>
   );
 }
