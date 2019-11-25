@@ -3,6 +3,8 @@ const Ingresso = require('../models/Ingresso');
 const User = require('../models/User');
 const Seat = require('../models/Seat');
 
+const Espetaculo = require('../models/Espetaculo');
+
 module.exports = {
 
   async index(req, res) {
@@ -12,8 +14,22 @@ module.exports = {
     const ticket = await Ingresso.findAll({
       where : {
         user_id
-      }
-      // include: { association: 'ingressos' }
+      },
+
+      include : [{
+        association: 'seats',
+        attributes:['fila', 'cadeira'],
+        include : [{
+          association: 'espetaculos',
+          attributes:['hora', 'dia', 'mes', 'price'],
+          include : [{
+            association: 'pecas',
+            attributes: ['name', 'duration', 'classificacao'],
+          }]
+        }]
+      }]
+
+
     });
     return res.json(ticket);
 

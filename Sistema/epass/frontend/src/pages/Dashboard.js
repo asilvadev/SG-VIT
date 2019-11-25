@@ -5,6 +5,8 @@ import api from "../services/api";
 import logo from "../assets/epass.png";
 
 import "./Dashboard.css";
+import TablelistEspecUser from "../components/TablelistEspecUser";
+import TablelistIngressosUser from "../components/TablelistIngressosUser";
 
 export default function Dashboard({ history }) {
   const id = localStorage.getItem("id");
@@ -52,10 +54,20 @@ export default function Dashboard({ history }) {
 
     history.push("/");
   }
+  window.onload = function () {
+    if (! localStorage.justOnce) {
+        localStorage.setItem("justOnce", "true");
+        window.location.reload();
+    }
+}
+
+
+
+
 
   return (
     <div className="externa">
-      <header id="main-header">
+      {/* <header id="main-header">
         <div className="header-content">
           <a href="/" className="">
             <img right src={logo} alt="ePass" />
@@ -68,36 +80,46 @@ export default function Dashboard({ history }) {
             </li>
           </ul>
         </div>
-      </header>
+      </header> */}
       <body>
-        <Tabs
+      <Tabs
           className="tabs"
-          defaultTab="one"
+          // defaultTab="one"
           onChange={tabId => {
             console.log(tabId);
           }}
         >
           <TabList className="tablist">
             <Tab className="tablink" tabFor="one">
-              Inicio
+             ESPETACULOS
             </Tab>
             <Tab className="tablink" tabFor="two">
-              Peças
+              INGRESSOS
             </Tab>
             <Tab className="tablink" tabFor="three">
-              Meus Ingressos
+              SUPPORT
             </Tab>
             <Tab className="tablink" tabFor="four">
-              Configurações
+              CONFIGURAÇÕES
             </Tab>
           </TabList>
-          <TabPanel tabId="one"></TabPanel>
-          <TabPanel tabId="two"></TabPanel>
+          <TabPanel tabId="one">
+            Olá {user.name}, Essa são os espetaculos disponiveis no momento.
+
+          <TablelistEspecUser />
+          </TabPanel>
+          <TabPanel tabId="two">
+        Olá {user.name}, Você está visualizando os seus Ingressos
+        <TablelistIngressosUser />
+
+
+          </TabPanel>
           <TabPanel tabId="three">
-            <p>Tab 3 content</p>
+            Olá {user.name}, Ainda não contamos com essa funcionalidade. Logo, logo estaremos aqui.
           </TabPanel>
           <TabPanel tabId="four">
-            <p>Tab 4 content</p>
+            Olá {user.name}, Você está em configurações. Ainda não contamos com essa funcionalidade. Logo, logo estaremos aqui.
+
           </TabPanel>
         </Tabs>
       </body>

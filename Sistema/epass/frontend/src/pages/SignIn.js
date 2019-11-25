@@ -43,7 +43,7 @@ export default function SignIn({ history }) {
 
   return (
     <div className="externo">
-      <Header />
+      {/* <Header /> */}
       <div className="signin-container">
         <img src={logo} alt="ePass" />
         <form onSubmit={handlesSubmit}>

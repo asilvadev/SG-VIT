@@ -18,6 +18,8 @@ export default function Buy({ match, history }) {
   const [espetaculo, setEspetaculo] = useState([]);
   const [peca, setPeca] = useState([]);
   const [seats, setSeats] = useState([]);
+  const [local, setLocal] = useState([]);
+
   const expireTime = localStorage.getItem("expiresIn");
   const curretTime = localStorage.getItem("currentDate");
 
@@ -32,9 +34,7 @@ export default function Buy({ match, history }) {
       const seat = await api.get(`/seat/all/${match.params.id}`)
       setSeats(seat.data);
 
-      console.log(seat.data);
-      console.log(espet.data);
-      console.log(response.data);
+
     }
     loadInfos();
   }, []);
@@ -48,34 +48,51 @@ export default function Buy({ match, history }) {
         localStorage.removeItem("expiresIn");
         localStorage.removeItem("currentDate");
       }
-      console.log("TN: " + time);
+
     }
-    console.log("CT: " + curretTime);
-    console.log("ET: " + expireTime);
+
     times();
   });
-async function handleRegister({ match }){
+async function handleRegister({ history, match }){
+  console.log("Local ID: " + local);
+  console.log("User ID: " + localStorage.getItem("id"));
+  console.log("Espetaculo ID: " + espetaculo.id);
+
+  await api.post('/dashboard/buy',{
+    user_id : localStorage.getItem("id"),
+    espetaculo_id : espetaculo.id,
+    seat_id : local
+  });
+
+
 
 }
-  function CheckE() {
-    console.log("CheckE")
+  function CheckE(props) {
+
+    const id = props.id_value;
+
+
     return (
-      <input type="radio"/>
-    )
-  };
-  function CheckD() {
-    console.log("CheckD")
-    return (<input type="radio" disabled="disabled" />)
-  };
-  function CheckCB(props){
+      <input type="radio" value={id} onChange={e => setLocal(e.target.value)}/>
+      )
+    };
+    function CheckD(props) {
+
+      const id = props.id_value;
+
+      return (<input type="radio" disabled="disabled" />)
+    };
+    function CheckCB(props){
+      const id = props.id_value;
+
     const is_ocupada = props.is_ocupada;
-    console.log("OCUPADA: " + is_ocupada)
+
     if(is_ocupada){
-      console.log("Entrou no if")
-      return <CheckD />
+
+      return <CheckD id_value={id}/>
     }
-    console.log("Não entrou no if")
-    return <CheckE />
+
+    return <CheckE id_value={id}/>
   }
   function Disponivel(){
     var color = {
@@ -96,18 +113,21 @@ async function handleRegister({ match }){
     }
     return <Indiponivel />
   }
-
+  function handleGoBack({history}){
+    window.history.back()
+  }
   function CondComIf(props){
+
     return (
       <div className="tabelaz">
 
       {seats.map(chair => (
         <div className="brb">
           <div className="a"><CheckState is_ocupada={chair.is_ocupada}/></div>
-          <div className="lugar">
+          <div className="lugar" >
             {chair.fila} {chair.cadeira}
           </div>
-          <CheckCB is_ocupada={chair.is_ocupada}/>
+          <CheckCB id_value={chair.id} is_ocupada={chair.is_ocupada}/>
 
         </div>
       ))}
@@ -115,14 +135,9 @@ async function handleRegister({ match }){
     );
   }
 
-
-
-
-
-
   return (
     <div className="externo">
-      <Header />
+      {/* <Header /> */}
       <div className="banner">
         <div className="item">
           <picture>
@@ -136,16 +151,17 @@ async function handleRegister({ match }){
       <div className="conteudo">
         <div className="servicos">
           <div className="btn-comprar">
-
-              <button type="submit" id="comprar" value="valor" onSubmit={handleRegister}>
+        <Link to={`/dashboard`}>
+              <button type="submit" id="comprar" value="valor" onClick={handleRegister}>
                 FINALIZAR >
               </button>
+        </Link>
 
           </div>
         </div>
         <div className="row">
-          <Link to={`/`}>
-            <a className="pull-left breadcrum">← Voltar para Home</a>
+          <Link onClick={handleGoBack}>
+            <a className="pull-left breadcrum">← Voltar</a>
           </Link>
         </div>
         <div className="row">
@@ -165,18 +181,16 @@ async function handleRegister({ match }){
               <CondComIf />
 
             </p>
-            <p><strong>Genero: {peca.genero}</strong></p>
             <p>
-
-
+              <strong>Diretor: {peca.director}</strong><br></br>
+            <strong>Genero: {peca.genero}</strong>
+            </p>
+            <p>
               <strong>Preço: R$ {espetaculo.price},00</strong><br></br>
               <strong>Duração: {peca.duration} hr</strong>
             </p>
             <p>
-              <strong>Classificação Etária:</strong> {peca.classificacao}. Menores de 14 anos,
-              somente poderão entrar acompanhados dos pais ou responsáveis.
-              Crianças até 24 meses de idade que ficarem no colo dos pais, não
-              pagam.
+              <strong>Classificação: {peca.classificacao}</strong>.
             </p>
           </div>
         </div>

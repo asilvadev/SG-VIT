@@ -30,7 +30,7 @@ export default function Home({ history }) {
 
 
     <div className="externo">
-      <Header />
+      {/* <Header /> */}
       <Slider className="slider-wrapper" autoPlay duration={6000}>
         {pecas.map(peca => (
           <div

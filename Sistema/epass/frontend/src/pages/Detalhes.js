@@ -29,10 +29,12 @@ export default function Detalhes({ match, history }) {
     }
     loadInfos();
   }, []);
-
+function handleGoBack({history}){
+  window.history.back()
+}
   return (
     <div className="externo">
-              <Header />
+              {/* <Header /> */}
       <div className="banner">
         <div className="item">
           <picture>
@@ -54,8 +56,8 @@ export default function Detalhes({ match, history }) {
           </div>
         </div>
         <div className="row">
-          <Link to={`/`}>
-            <a className="pull-left breadcrum">← Voltar para Home</a>
+          <Link onClick={handleGoBack}>
+            <a className="pull-left breadcrum" >← Voltar</a>
           </Link>
         </div>
         <div className="row">
@@ -101,15 +103,19 @@ export default function Detalhes({ match, history }) {
               <strong>
                 ________________________________________________________________________________
               </strong>
+              </p>
+            <p>
+              <strong>Diretor: {peca.director}</strong><br></br>
+            <strong>Genero: {peca.genero}</strong>
             </p>
             <p>
+
+
+              <strong>Preço: R$ {espetaculo.price},00</strong><br></br>
               <strong>Duração: {peca.duration} hr</strong>
             </p>
             <p>
-              <strong>Classificação Etária:</strong> {peca.classificacao}. Menores de 14 anos,
-              somente poderão entrar acompanhados dos pais ou responsáveis.
-              Crianças até 24 meses de idade que ficarem no colo dos pais, não
-              pagam.
+              <strong>Classificação: {peca.classificacao}</strong>.
             </p>
           </div>
         </div>

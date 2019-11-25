@@ -7,6 +7,7 @@ const Seat = require("../models/Seat");
 module.exports = {
   async index(req, res) {
     const response = await Espetaculo.findAll({
+      include: { association: 'pecas' }
 
     });
     if (!response) {

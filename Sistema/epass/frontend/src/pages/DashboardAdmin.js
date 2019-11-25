@@ -28,7 +28,9 @@ export default function DashboardAdmin({ history }) {
       setUser(response.data);
     }
     loadUser();
+    // window.location.reload(false);
   }, []);
+
 
   useEffect(() => {
     function times() {
@@ -58,9 +60,10 @@ export default function DashboardAdmin({ history }) {
     history.push("/");
   }
 
+
   return (
     <div className="externa">
-      <header id="main-header">
+      {/* <header id="main-header">
         <div className="header-content">
           <a href="/" className="">
             <img right src={logo} alt="ePass" />
@@ -76,7 +79,7 @@ export default function DashboardAdmin({ history }) {
             </li>
           </ul>
         </div>
-      </header>
+      </header> */}
       <body>
         <Tabs
           className="tabs"
