@@ -13,8 +13,11 @@
 
 ## Screenshots
 
-![](Sistema/prints/sign.jpg)<br>
-![](sistema/prints/vert.jpg)<br>
+![](Sistema/prints/sign.jpg)
+##### 
+![](Sistema/prints/vert01.jpg)
+##### 
+![](Sistema/prints/vert02.jpg)
 
 ## Video
 https://www.youtube.com/watch?v=RriuMzmcRm0&feature=youtu.be
