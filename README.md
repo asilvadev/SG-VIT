@@ -15,7 +15,7 @@
 
 ![](Sistema/prints/sign.jpg)<br>
 .
-![](sistema/prints/vert.jpg)<br>
+![](sistema/prints/vert01.jpg)<br>
 
 ## Video
 https://www.youtube.com/watch?v=RriuMzmcRm0&feature=youtu.be
