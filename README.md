@@ -83,6 +83,12 @@ src/fronted
 ##### 
 ![](Diagramas/Cadastrar&#32;peça.png)
 
+## Banco de Dados 
+> Usado o postgreSQL, via Sequelize.<br>
+> Sistema converte ao final para linhas de comando.
+
+![](Sistema/prints/query_listar_espetaculo-vert.jpg)
+
 > A versão atual não suporta o modulo Funcionario. Atualizações futuras englobarão o modulo FUNCIONARIO.
 
 ## ATA
