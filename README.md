@@ -14,6 +14,7 @@
 ## Screenshots
 
 ![](Sistema/prints/sign.jpg)<br>
+.
 ![](sistema/prints/vert.jpg)<br>
 
 ## Video
