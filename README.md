@@ -10,6 +10,10 @@
 <br><br>
 ## Sistema de Gerenciamento de Venda de Ingressos de Teatro
 <br>
+O Sistema de Gerenciamento de Venda de Ingressos para Teatros (SG-VIT) será um
+sistema que auxiliará um estabelecimento de teatro a vender os ingressos para suas
+atrações de forma on-line via aplicação Web.
+
 
 ## Screenshots
 
@@ -45,11 +49,13 @@ src/fronted
 |Versão|Data|Download|
 |-|-|-|
 |0.0.1|14/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/Docs/Documento%20de%20EOR%20-%20SG-VIT.pdf)|
+*Desatualizado
 
 ## Documento de Viabilidade
 |Versão|Data|Download|
 |-|-|-|
 |0.0.1|14/08/2019|[LINK](https://docs.google.com/document/d/1WcJmFmbdfi0pUfzN5idmCA_Hn8Ov2O_7X2nNpX1f1Jo/edit)|
+*Desatualizado
 
 ## DIAGRAMAS
 ##### Classe
@@ -83,12 +89,19 @@ src/fronted
 ##### 
 ![](Diagramas/Cadastrar&#32;peça.png)
 
+## Banco de Dados 
+> Usado o postgreSQL, via Sequelize.<br>
+> Sistema converte ao final para linhas de comando.
+
+![](Sistema/prints/query_listar_espetaculo-vert.jpg)
+
 > A versão atual não suporta o modulo Funcionario. Atualizações futuras englobarão o modulo FUNCIONARIO.
 
 ## ATA
 | Nº |Descrição | Data | Download |
 |-|-|-|-|
 |01|Levantamento de ferramentas para desenvolvimendo|12/08/2019|[LINK](https://github.com/asilvadev/SG-VIT/blob/master/ATA/ATA%2001%20-%20Levantamento%20de%20ferramentas%20para%20desenvolvimento%20-%2012.08.2019.pdf)|
+*Desatualizado
 
 ## Componentes
 Alan Silva<br>
