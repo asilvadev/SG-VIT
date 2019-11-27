@@ -2,6 +2,7 @@ import React from "react";
 import "./SignIn.css";
 
 import api from "../services/api";
+import CondHeader from "../components/Headers";
 
 import logo from "../assets/epass.png";
 
@@ -20,7 +21,6 @@ export default function SignIn({ history }) {
       .then(response => {
         const { data } = response;
         if (data.success) {
-
           if (data.admin) {
             localStorage.setItem("app-token", data.token);
             localStorage.setItem("admin", data.admin);
@@ -41,6 +41,7 @@ export default function SignIn({ history }) {
 
   return (
     <div className="externo">
+      <CondHeader />
       <div className="signin-container">
         <img src={logo} alt="ePass" />
         <form onSubmit={handlesSubmit}>

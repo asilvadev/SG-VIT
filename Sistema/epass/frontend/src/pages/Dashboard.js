@@ -3,6 +3,7 @@ import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import api from "../services/api";
 
 import "./Dashboard.css";
+import CondHeader from "../components/Headers";
 import TablelistEspecUser from "../components/TablelistEspecUser";
 import TablelistIngressosUser from "../components/TablelistIngressosUser";
 
@@ -10,9 +11,7 @@ export default function Dashboard({ history }) {
   const id = localStorage.getItem("id");
   const expireTime = localStorage.getItem("expiresIn");
 
-  const [user, setUser] = useState({
-
-  });
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     async function loadUser() {
@@ -38,25 +37,15 @@ export default function Dashboard({ history }) {
     times();
   });
 
-
-
-
-
-
-
   return (
     <div className="externa">
+      <CondHeader />
 
       <body>
-      <Tabs
-          className="tabs"
-
-          onChange={tabId => {
-          }}
-        >
+        <Tabs className="tabs" onChange={tabId => {}}>
           <TabList className="tablist">
             <Tab className="tablink" tabFor="one">
-             ESPETACULOS
+              ESPETACULOS
             </Tab>
             <Tab className="tablink" tabFor="two">
               INGRESSOS
@@ -70,21 +59,19 @@ export default function Dashboard({ history }) {
           </TabList>
           <TabPanel tabId="one">
             Olá {user.name}, Essa são os espetaculos disponiveis no momento.
-
-          <TablelistEspecUser />
+            <TablelistEspecUser />
           </TabPanel>
           <TabPanel tabId="two">
-        Olá {user.name}, Você está visualizando os seus Ingressos
-        <TablelistIngressosUser />
-
-
+            Olá {user.name}, Você está visualizando os seus Ingressos
+            <TablelistIngressosUser />
           </TabPanel>
           <TabPanel tabId="three">
-            Olá {user.name}, Ainda não contamos com essa funcionalidade. Logo, logo estaremos aqui.
+            Olá {user.name}, Ainda não contamos com essa funcionalidade. Logo,
+            logo estaremos aqui.
           </TabPanel>
           <TabPanel tabId="four">
-            Olá {user.name}, Você está em configurações. Ainda não contamos com essa funcionalidade. Logo, logo estaremos aqui.
-
+            Olá {user.name}, Você está em configurações. Ainda não contamos com
+            essa funcionalidade. Logo, logo estaremos aqui.
           </TabPanel>
         </Tabs>
       </body>

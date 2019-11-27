@@ -4,6 +4,7 @@ import "./SignUp.css";
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
+import CondHeader from "../components/Headers";
 
 export default function SignUp({ history }) {
   const [name, setNome] = React.useState("");
@@ -25,49 +26,46 @@ export default function SignUp({ history }) {
 
   return (
     <div className="externo">
+      <CondHeader />
       <div className="signup-container">
-      <img src={logo} alt="ePass" />
-      <form onSubmit={handlesSubmit}>
-        <input
-          type="text"
-          placeholder="Nome"
-          value={name}
-          required
-          onChange={e => setNome(e.target.value)}
-        />
+        <img src={logo} alt="ePass" />
+        <form onSubmit={handlesSubmit}>
+          <input
+            type="text"
+            placeholder="Nome"
+            value={name}
+            required
+            onChange={e => setNome(e.target.value)}
+          />
 
-        <input
-          type="text"
-          placeholder="CPF"
-          minLength="11"
-          maxLength="11"
-          value={cpf}
-          required
-          onChange={e => setCPF(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="CPF"
+            minLength="11"
+            maxLength="11"
+            value={cpf}
+            required
+            onChange={e => setCPF(e.target.value)}
+          />
 
-        <input
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          required
-          onChange={e => setEmail(e.target.value)}
-        />
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            required
+            onChange={e => setEmail(e.target.value)}
+          />
 
-        <input
-          type="password"
-          placeholder="Senha"
-          value={senha}
-          required
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button type="submit">Cadastrar</button>
-      </form>
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            required
+            onChange={e => setPassword(e.target.value)}
+          />
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
     </div>
-
-    </div>
-
-
-
   );
 }

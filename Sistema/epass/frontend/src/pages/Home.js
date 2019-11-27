@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
-
+import CondHeader from "../components/Headers";
 
 import "./Home.css";
 import "./slider-animations.css";
@@ -22,9 +22,8 @@ export default function Home({ history }) {
   }, []);
 
   return (
-
-
     <div className="externo">
+      <CondHeader />
       <Slider className="slider-wrapper" autoPlay duration={6000}>
         {pecas.map(peca => (
           <div
@@ -72,8 +71,8 @@ export default function Home({ history }) {
                   <div class="info-evento">
                     <div class="minicard-data-info">
                       <span class="data-semana">DIA</span>
-        <span class="data-layer">{peca.dia}</span>
-        <span class="data-mes">{peca.mes}</span>
+                      <span class="data-layer">{peca.dia}</span>
+                      <span class="data-mes">{peca.mes}</span>
                     </div>
                     <div class="infoCardDesk">
                       <span class="evento-cidade">Natal/RN</span>
@@ -105,6 +104,5 @@ export default function Home({ history }) {
         ))}
       </div>
     </div>
-
   );
 }

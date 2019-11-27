@@ -5,6 +5,7 @@ import "./EspecCreate.css";
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
+import CondHeader from "../components/Headers";
 
 export default function EspecCreate({ history, match }) {
   const [hora, setHora] = React.useState("");
@@ -15,9 +16,6 @@ export default function EspecCreate({ history, match }) {
 
   const [pecas, setPecas] = React.useState([]);
 
-
-
-
   useEffect(() => {
     async function loadPecas() {
       const response = await api.get("/show/all");
@@ -27,28 +25,23 @@ export default function EspecCreate({ history, match }) {
     loadPecas();
   }, []);
 
-
-
   async function handlesSubmit(e) {
     e.preventDefault();
-
-
 
     await api.post("/espetaculo/create", {
       hora,
       dia,
       mes,
       price,
-      peca_id,
-
+      peca_id
     });
     window.location.reload(false);
-
   }
 
   //Pode remover os value (para não aparecer no html)
   return (
     <div className="show-create-container">
+      <CondHeader />
       <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <label htmlFor="peças" className="peças">
@@ -66,12 +59,11 @@ export default function EspecCreate({ history, match }) {
               {peca.name}
             </option>
           ))}
-
         </select>
 
-
-
-        <label htmlFor="hora" className="HORA">HORA</label>
+        <label htmlFor="hora" className="HORA">
+          HORA
+        </label>
         <input
           type="number"
           placeholder="Hora"
@@ -83,7 +75,9 @@ export default function EspecCreate({ history, match }) {
           required
           onChange={e => setHora(e.target.value)}
         />
-        <label htmlFor="dia" className="DIA">DIA</label>
+        <label htmlFor="dia" className="DIA">
+          DIA
+        </label>
         <input
           type="number"
           placeholder="Dia"
@@ -95,7 +89,9 @@ export default function EspecCreate({ history, match }) {
           required
           onChange={e => setDia(e.target.value)}
         />
-        <label htmlFor="mes" className="MES">MES</label>
+        <label htmlFor="mes" className="MES">
+          MES
+        </label>
         <input
           type="text"
           placeholder="Mes"

@@ -1,9 +1,9 @@
 import React from "react";
 
-
 import api from "../services/api";
 
 import logo from "../assets/epass.png";
+import CondHeader from "../components/Headers";
 
 export default function EditShow({ match, history }) {
   const [name, setName] = React.useState("");
@@ -28,7 +28,6 @@ export default function EditShow({ match, history }) {
 
     data.append("image", image);
 
-
     await api.put(`/show/update/${match.params.id}`, data);
     window.location.reload();
   }
@@ -36,7 +35,8 @@ export default function EditShow({ match, history }) {
   //Pode remover os value (para não aparecer no html)
   return (
     <div className="show-create-container">
-       <img src={logo} alt="ePass" />
+      <CondHeader />
+      <img src={logo} alt="ePass" />
       <form onSubmit={handlesSubmit}>
         <label htmlFor="pecaNome" className="pecaNome">
           NOME DA PEÇA

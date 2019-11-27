@@ -8,14 +8,13 @@ import ShowCreate from "./ShowCreate";
 import EspecCreate from "./EspecCreate";
 import TablelistShow from "../components/TablelistShow";
 import TablelistEspec from "../components/TablelistEspec";
+import CondHeader from "../components/Headers";
 
 export default function DashboardAdmin({ history }) {
   const id = localStorage.getItem("id");
   const expireTime = localStorage.getItem("expiresIn");
 
-  const [user, setUser] = useState({
-
-  });
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     async function loadUser() {
@@ -24,9 +23,7 @@ export default function DashboardAdmin({ history }) {
       setUser(response.data);
     }
     loadUser();
-
   }, []);
-
 
   useEffect(() => {
     function times() {
@@ -43,19 +40,12 @@ export default function DashboardAdmin({ history }) {
     times();
   });
 
-
-
-
   return (
     <div className="externa">
+      <CondHeader />
 
       <body>
-        <Tabs
-          className="tabs"
-
-          onChange={tabId => {
-          }}
-        >
+        <Tabs className="tabs" onChange={tabId => {}}>
           <TabList className="tablist">
             <Tab className="tablink" tabFor="one">
               ESPETACULOS
@@ -71,13 +61,11 @@ export default function DashboardAdmin({ history }) {
             </Tab>
           </TabList>
           <TabPanel tabId="one">
-
             Olá {user.name}, Você está visualizando os ESPETACULO
             <TablelistEspec />
           </TabPanel>
           <TabPanel tabId="two">
             Olá {user.name}, Você está cadastrando um espetaculo
-
             <EspecCreate />
           </TabPanel>
           <TabPanel tabId="three">

@@ -10,6 +10,7 @@ import time from "../assets/clock.svg";
 import placeit from "../assets/place.svg";
 
 import api from "../services/api";
+import CondHeader from "../components/Headers";
 
 export default function Detalhes({ match, history }) {
   const [espetaculo, setEspetaculo] = useState([]);
@@ -21,22 +22,19 @@ export default function Detalhes({ match, history }) {
       setEspetaculo(espet.data);
       const response = await api.get(`/show/${espet.data.peca_id}`);
       setPeca(response.data);
-
     }
     loadInfos();
   }, []);
-function handleGoBack({history}){
-  window.history.back()
-}
+  function handleGoBack({ history }) {
+    window.history.back();
+  }
   return (
     <div className="externo">
+      <CondHeader />
       <div className="banner">
         <div className="item">
           <picture>
-            <img
-              src={`http://localhost:3333/files/${peca.image}`}
-              alt=""
-            />
+            <img src={`http://localhost:3333/files/${peca.image}`} alt="" />
           </picture>
         </div>
       </div>
@@ -52,7 +50,7 @@ function handleGoBack({history}){
         </div>
         <div className="row">
           <Link onClick={handleGoBack}>
-            <a className="pull-left breadcrum" >← Voltar</a>
+            <a className="pull-left breadcrum">← Voltar</a>
           </Link>
         </div>
         <div className="row">
@@ -91,22 +89,20 @@ function handleGoBack({history}){
             </div>
           </div>
           <div className="descricao-evento">
-            <p>
-            {peca.sinopse}
-            </p>
+            <p>{peca.sinopse}</p>
             <p>
               <strong>
                 ________________________________________________________________________________
               </strong>
-              </p>
-            <p>
-              <strong>Diretor: {peca.director}</strong><br></br>
-            <strong>Genero: {peca.genero}</strong>
             </p>
             <p>
-
-
-              <strong>Preço: R$ {espetaculo.price},00</strong><br></br>
+              <strong>Diretor: {peca.director}</strong>
+              <br></br>
+              <strong>Genero: {peca.genero}</strong>
+            </p>
+            <p>
+              <strong>Preço: R$ {espetaculo.price},00</strong>
+              <br></br>
               <strong>Duração: {peca.duration} hr</strong>
             </p>
             <p>
@@ -115,10 +111,6 @@ function handleGoBack({history}){
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 }
